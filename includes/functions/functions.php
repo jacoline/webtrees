@@ -21,6 +21,12 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
+// PHP5.4 allows class member access on instantiation, e.g. (new X)->y()
+// Mimic this in PHP5.3, e.g. with(new X)->y()
+function with($x) {
+	return $x;
+}
+
 // Check with the webtrees.net server for the latest version of webtrees.
 // Fetching the remote file can be slow, so check infrequently, and cache the result.
 // Pass the current versions of webtrees, PHP and MySQL, as the response

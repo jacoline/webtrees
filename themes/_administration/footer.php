@@ -17,15 +17,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
-
-if (!defined('WT_WEBTREES')) {
-	header('HTTP/1.0 403 Forbidden');
-	exit;
-}
-
-echo '</div>'; // id="admin_content"
-echo '<div id="admin_footer">';
-if (WT_DEBUG) {
-	echo execution_stats();
-}
-echo '</div>'; // id="admin_footer"
+?>
+		</div>
+		<div id="admin_footer">
+			<?php if (WT_DEBUG) { ?>
+			<?php echo execution_stats(); ?>
+			<?php } ?>
+		</div>

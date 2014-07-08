@@ -115,7 +115,7 @@ case 'compose':
 			return true;
 		}
 	');
-	echo '<span class="subheaders">', WT_I18N::translate('Send message'), '</span>';
+	echo '<span class="subheaders">', WT_I18N::translate('Send a message'), '</span>';
 	echo $errors;
 
 	if (!WT_USER_ID) {

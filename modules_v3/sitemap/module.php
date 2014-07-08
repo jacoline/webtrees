@@ -231,7 +231,7 @@ class sitemap_WT_Module extends WT_Module implements WT_Module_Config {
 
 		$include_any=false;
 		echo
-			'<h3>', $this->getTitle(), '</h3>',
+			'<h2>', $this->getTitle(), '</h2>',
 			'<p>',
 			/* I18N: The www.sitemaps.org site is translated into many languages (e.g. http://www.sitemaps.org/fr/) - choose an appropriate URL. */
 			WT_I18N::translate('Sitemaps are a way for webmasters to tell search engines about the pages on a website that are available for crawling.  All major search engines support sitemaps.  For more information, see <a href="http://www.sitemaps.org/">www.sitemaps.org</a>.').
@@ -241,14 +241,14 @@ class sitemap_WT_Module extends WT_Module implements WT_Module_Config {
 			'<input type="hidden" name="action" value="save">';
 		foreach (WT_Tree::getAll() as $tree) {
 			echo '<p><input type="checkbox" name="include', $tree->tree_id, '"';
-			if (get_gedcom_setting($tree->tree_id, 'include_in_sitemap')) {
+			if ($tree->preference('include_in_sitemap')) {
 				echo ' checked="checked"';
 				$include_any=true;
 			}
 			echo '>', $tree->tree_title_html, '</p>';
 		}
 		echo
-			'<input type="submit" value="', WT_I18N::translate('save'), '">',
+			'<input class="btn btn-primary" type="submit" value="', WT_I18N::translate('save'), '">',
 			'</form>',
 			'<hr>';
 

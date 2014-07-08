@@ -39,126 +39,267 @@ $this
 			}
 		});
 	');
-echo
-	'<!DOCTYPE html>',
-	'<html ', WT_I18N::html_markup(), '>',
-	'<head>',
-	'<meta charset="UTF-8">',
-	'<meta http-equiv="X-UA-Compatible" content="IE=edge">',
-	'<meta name="robots" content="noindex,nofollow">',
-	'<title>', htmlspecialchars($title), '</title>',
-	'<link rel="icon" href="', WT_CSS_URL, 'favicon.png" type="image/png">',
-	'<link rel="stylesheet" href="', WT_THEME_URL, 'jquery-ui-1.10.3/jquery-ui-1.10.3.custom.css" type="text/css">',
-	'<link rel="stylesheet" href="', WT_CSS_URL, 'style.css" type="text/css">',
-	'<!--[if IE]>',
-	'<link type="text/css" rel="stylesheet" href="', WT_CSS_URL, 'msie.css">',
-	'<![endif]-->';
 
-echo
-	$javascript,
-	'</head>',
-	'<body id="body">',
-// Header
-	'<div id="admin_head" class="ui-widget-content">',
-	'<i class="icon-webtrees"></i>',
-	'<div id="title"><a href="admin.php">', WT_I18N::translate('Administration'), '</a></div>',
-	'<div id="links">',
-	'<a href="index.php">', WT_I18N::translate('My page'), '</a> | ',
-	logout_link(),
-	'<span> | </span>',
-	'<ul class="langmenu">';
-	$language_menu=WT_MenuBar::getLanguageMenu();
-		if ($language_menu) {
-			echo $language_menu->getMenuAsList();
-		}
-	echo '</ul>';
-	if (WT_USER_CAN_ACCEPT && exists_pending_change()) {
-	echo ' | <li><a href="#" onclick="window.open(\'edit_changes.php\',\'_blank\', chan_window_specs); return false;" style="color:red;">', WT_I18N::translate('Pending changes'), '</a></li>';
-	}
-	echo '</div>',
-	'<div id="info">',
-	WT_WEBTREES, ' ', WT_VERSION,
-	'<br>',
-	/* I18N: The local time on the server */
-	WT_I18N::translate('Server time'), ' —  ', format_timestamp(WT_SERVER_TIMESTAMP),
-	'<br>',
-	/* I18N: The local time on the client/browser */
-	WT_I18N::translate('Client time'), ' — ', format_timestamp(WT_CLIENT_TIMESTAMP),
-	'<br>',
-	/* I18N: Timezone - http://en.wikipedia.org/wiki/UTC */
-	WT_I18N::translate('UTC'), ' — ', format_timestamp(WT_TIMESTAMP),
-	'</div>',
-	'</div>',
-// Side menu
-	'<div id="admin_menu" class="ui-widget-content">',
-	'<ul>',
-	'<li><a ', (WT_SCRIPT_NAME=='admin.php' ? 'class="current" ' : ''), 'href="admin.php">', WT_I18N::translate('Administration'), '</a></li>';
-if (Auth::isAdmin()) {
-	echo
-		'<li><ul>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_site_config.php'  ? 'class="current" ' : ''), 'href="admin_site_config.php">',  WT_I18N::translate('Site configuration'    ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_site_logs.php'    ? 'class="current" ' : ''), 'href="admin_site_logs.php">',    WT_I18N::translate('Logs'                  ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_site_readme.php'  ? 'class="current" ' : ''), 'href="admin_site_readme.php">',  WT_I18N::translate('README documentation'  ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_site_info.php'    ? 'class="current" ' : ''), 'href="admin_site_info.php">',    WT_I18N::translate('PHP information'       ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_site_access.php'  ? 'class="current" ' : ''), 'href="admin_site_access.php">',  WT_I18N::translate('Site access rules'     ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_site_clean.php'   ? 'class="current" ' : ''), 'href="admin_site_clean.php">',   WT_I18N::translate('Clean up data folder'), '</a></li>',
-		'</ul></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_trees_manage.php' ? 'class="current" ' : ''), 'href="admin_trees_manage.php">', WT_I18N::translate('Family trees'          ), '</a></li>';
-} else {
-	echo '<li>', WT_I18N::translate('Family trees'), '</li>';
-}
-echo '<li><ul>';
-//-- gedcom list
-foreach (WT_Tree::getAll() as $tree) {
-	if (Auth::isManager($tree)) {
-		// Add a title="" element, since long tree titles are cropped
-		echo
-			'<li><span><a ', (WT_SCRIPT_NAME=='admin_trees_config.php' && WT_GED_ID==$tree->tree_id ? 'class="current" ' : ''), 'href="admin_trees_config.php?ged='.$tree->tree_name_url.'" title="', WT_Filter::escapeHtml($tree->tree_title), '" dir="auto">', $tree->tree_title_html,
-			'</a></span></li>';
-	}
-}
-echo
-	'<li><a ', (WT_SCRIPT_NAME=='admin_site_merge.php'   ? 'class="current" ' : ''), 'href="admin_site_merge.php">',   WT_I18N::translate('Merge records'), '</a></li>',
-	'<li><a ', (WT_SCRIPT_NAME=='admin_site_other.php'   ? 'class="current" ' : ''), 'href="admin_site_other.php">',   WT_I18N::translate('Add unlinked records'), '</a></li>',
-	'<li><a ', (WT_SCRIPT_NAME=='admin_trees_places.php' ? 'class="current" ' : ''), 'href="admin_trees_places.php">', WT_I18N::translate('Update place names'), '</a></li>',
-	'<li><a ', (WT_SCRIPT_NAME=='admin_trees_check.php'  ? 'class="current" ' : ''), 'href="admin_trees_check.php">',  WT_I18N::translate('Check for errors'), '</a></li>',
-	'<li><a ', (WT_SCRIPT_NAME=='admin_site_change.php'  ? 'class="current" ' : ''), 'href="admin_site_change.php">',  WT_I18N::translate('Changes log'),'</a></li>',
-	'<li><a href="index_edit.php?gedcom_id=-1" onclick="return modalDialog(\'index_edit.php?gedcom_id=-1'.'\', \'',    WT_I18N::translate('Set the default blocks for new family trees'), '\');">', WT_I18N::translate('Set the default blocks'), '</a></li>',
-	'</ul></li>';
+?>
+<!DOCTYPE html>
+<html <?php echo WT_I18N::html_markup(); ?>>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="robots" content="noindex,nofollow">
+		<title><?php echo WT_Filter::escapeHtml($title); ?></title>
+		<link rel="icon" href="<?php echo WT_CSS_URL; ?>favicon.png" type="image/png">
 
-if (Auth::isAdmin()) {
-	echo
-		'<li><a ', (WT_SCRIPT_NAME=='admin_users.php' && WT_Filter::get('action')!="cleanup"&& WT_Filter::get('action')!="createform" ? 'class="current" ' : ''), 'href="admin_users.php">',
-		WT_I18N::translate('Users'),
-		'</a></li>',
-		'<li><ul>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_users.php' && WT_Filter::get('action')=='createform' ? 'class="current" ' : ''), 'href="admin_users.php?action=createform">', WT_I18N::translate('Add a new user'), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_users_bulk.php' ? 'class="current" ' : ''), 'href="admin_users_bulk.php">', WT_I18N::translate('Send broadcast messages'), '</a>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_users.php' && WT_Filter::get('action')=='cleanup' ? 'class="current" ' : ''), 'href="admin_users.php?action=cleanup">', WT_I18N::translate('Delete inactive users'), '</a></li>',
-		'<li><a href="index_edit.php?user_id=-1" onclick="return modalDialog(\'index_edit.php?user_id=-1'.'\', \'', WT_I18N::translate('Set the default blocks for new users'), '\');">', WT_I18N::translate('Set the default blocks'), '</a></li>',
-		'</ul></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_media.php' ? 'class="current" ' : ''), 'href="admin_media.php">', WT_I18N::translate('Media'), '</a></li>',
-		'<li><ul>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_media_upload.php' ? 'class="current" ' : ''), 'href="admin_media_upload.php">', WT_I18N::translate('Upload media files'), '</a></li>',
-		'</ul></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_modules.php' ? 'class="current" ' : ''), 'href="admin_modules.php">',
-		WT_I18N::translate('Modules'),
-		'</a></li>',
-		'<li><ul>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_module_menus.php'   ? 'class="current" ' : ''), 'href="admin_module_menus.php">',   WT_I18N::translate('Menus'  ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_module_tabs.php'    ? 'class="current" ' : ''), 'href="admin_module_tabs.php">',    WT_I18N::translate('Tabs'   ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_module_blocks.php'  ? 'class="current" ' : ''), 'href="admin_module_blocks.php">',  WT_I18N::translate('Blocks' ), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_module_sidebar.php' ? 'class="current" ' : ''), 'href="admin_module_sidebar.php">', WT_I18N::translate('Sidebar'), '</a></li>',
-		'<li><a ', (WT_SCRIPT_NAME=='admin_module_reports.php' ? 'class="current" ' : ''), 'href="admin_module_reports.php">', WT_I18N::translate('Reports'), '</a></li>',
-		'</ul></li>';
-	foreach (WT_Module::getActiveModules(true) as $module) {
-		if ($module instanceof WT_Module_Config) {
-			echo '<li><span><a ', (WT_SCRIPT_NAME=='module.php' && WT_Filter::get('mod')==$module->getName() ? 'class="current" ' : ''), 'href="', $module->getConfigLink(), '">', $module->getTitle(), '</a></span></li>';
-		}
-	}
-}
-echo
-	'</ul>',
-	'</div>',
-	'<div id="admin_content" class="ui-widget-content">',
-	WT_FlashMessages::getHtmlMessages(); // Feedback from asynchronous actions;
+		<link rel="stylesheet" href="<?php echo WT_BOOTSTRAP_CSS_URL; ?>" type="text/css">
+		<link rel="stylesheet" href="<?php echo WT_BOOTSTRAP_ACCESSIBILITY_CSS_URL; ?>" type="text/css">
+		<link rel="stylesheet" href="<?php echo WT_DATATABLES_BOOTSTRAP_CSS_URL; ?>" type="text/css">
+		<?php if ($TEXT_DIRECTION === 'rtl'): ?>
+		<link rel="stylesheet" href="<?php echo WT_BOOTSTRAP_RTL_CSS_URL; ?>" type="text/css">
+		<?php endif; ?>
+		<link rel="stylesheet" href="<?php echo WT_FONT_AWESOME_CSS_URL; ?>" type="text/css">
+		<link rel="stylesheet" href="<?php echo WT_CSS_URL; ?>style.css" type="text/css">
+
+		<?php echo $javascript; ?>
+		<script src="<?php echo WT_JQUERY_URL; ?>"></script>
+		<script src="<?php echo WT_BOOTSTRAP_JS_URL; ?>"></script>
+		<script src="<?php echo WT_BOOTSTRAP_ACCESSIBILITY_JS_URL; ?>"></script>
+		<script src="<?php echo WT_DATATABLES_JS_URL; ?>"></script>
+		<script src="<?php echo WT_DATATABLES_BOOTSTRAP_JS_URL; ?>"></script>
+		<style>
+			legend.control-label {
+				border: inherit;
+				font-weight: 700;
+				font-size: inherit;
+			}
+		</style>
+	</head>
+
+	<body class="container">
+		<a class="btn btn-primary sr-only sr-only-focusable" href="#content" style="position: absolute;">
+			<?php echo /* I18N: Scroll past the navigation menus to the main part of the page */ WT_I18N::translate('Skip to content'); ?>
+		</a>
+		<header class="row">
+			<div class="col-xs-12">
+				<h1 class="text-center">
+					<?php echo WT_I18N::translate('Administration'); ?>
+					—
+					<?php echo WT_WEBTREES, ' ', WT_VERSION; ?>
+				</h1>
+			</div>
+		</header>
+
+		<nav class=row">
+			<ul class="nav nav-tabs" role="tablist">
+				<!-- ADMINISTRATION -->
+				<li class="dropdown<?php echo preg_match('/^admin(_site|.php)/', WT_SCRIPT_NAME) ? ' active' : ''; ?>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-cogs"></i>
+						<?php echo /* I18N: Menu entry */ WT_I18N::translate('Administration'); ?>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li role="presentation">
+							<a role="menuitem" href="admin_site_config.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Site configuration'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_site_logs.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Logs'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_site_readme.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('README documentation'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_site_info.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('PHP information'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_site_access.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Site access rules'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_site_clean.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Clean up data folder'); ?>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!-- FAMILY TREES -->
+				<li<?php echo preg_match('/^admin_trees/', WT_SCRIPT_NAME) ? ' class="active"' : ''; ?>>
+					<a href="admin_trees_manage.php">
+						<i class="fa fa-leaf"></i>
+						<?php echo /* I18N: Menu entry */ WT_I18N::translate('Family trees'); ?>
+					</a>
+				</li>
+				<!-- USERS -->
+				<li class="dropdown<?php echo preg_match('/^admin_users/', WT_SCRIPT_NAME) ? ' active' : ''; ?>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-user"></i>
+						<?php echo /* I18N: Menu entry */ WT_I18N::translate('Users'); ?>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li role="presentation">
+							<a role="menuitem" href="admin_users.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('User administration'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_users.php?action=createform">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Add a new user'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_users_bulk.php">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Send broadcast messages'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_users.php?action=cleanup">
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Delete inactive users'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a
+								role="menuitem"
+								href="index_edit.php?gedcom_id=-1"
+								onclick="return modalDialog('index_edit.php?gedcom_id=-1', '<?php echo WT_I18N::translate('Set the default blocks for new family trees'); ?>');"
+								>
+								<?php echo /* I18N: Menu entry */ WT_I18N::translate('Set the default blocks'); ?>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!-- MEDIA -->
+				<li class="dropdown<?php echo preg_match('/^admin_media/', WT_SCRIPT_NAME) ? ' active' : ''; ?>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-photo"></i>
+						<?php echo /* I18N: Menu item */ WT_I18N::translate('Media'); ?>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li role="presentation">
+							<a role="menuitem" href="admin_media.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Manage media'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_media_upload.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Upload media files'); ?>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<!-- MODULES -->
+				<li class="dropdown<?php echo preg_match('/module/', WT_SCRIPT_NAME) ? ' active' : ''; ?>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-th-large"></i>
+						<?php echo /* I18N: Menu item */ WT_I18N::translate('Modules'); ?>
+						<span class="caret"></span>
+					</a>
+					<ul
+						class="dropdown-menu"
+						role="menu"
+					>
+						<li role="presentation">
+							<a role="menuitem" href="admin_modules.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Module administration'); ?>
+							</a>
+						</li>
+						<li role="presentation" class="divider"></li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_module_menus.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Menus'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_module_tabs.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Tabs'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_module_blocks.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Blocks'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_module_sidebar.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Sidebar'); ?>
+							</a>
+						</li>
+						<li role="presentation">
+							<a role="menuitem" href="admin_module_reports.php">
+								<?php echo /* I18N: Menu item */ WT_I18N::translate('Reports'); ?>
+							</a>
+						</li>
+						<li role="presentation" class="divider"></li>
+						<?php foreach (WT_Module::getActiveModules(true) as $module) { ?>
+							<?php if ($module instanceof WT_Module_Config) { ?>
+								<li role="presentation">
+									<a role="menuitem" href="<?php echo $module->getConfigLink(); ?>">
+										<i><?php echo WT_Filter::escapeHtml($module->getTitle()); ?></i>
+									</a>
+								</li>
+							<?php } ?>
+						<?php } ?>
+					</ul>
+				</li>
+				<!-- PENDING CHANGES -->
+				<?php if (WT_USER_CAN_ACCEPT && exists_pending_change()) { ?>
+				<li>
+					<a href="#" class="text-danger" onclick="window.open('edit_changes.php', '_blank', chan_window_specs); return false;">
+						<i class="fa fa-random"></i>
+						<?php echo /* I18N: Menu item */ WT_I18N::translate('Pending changes'); ?>
+					</a>
+				</li>
+				<?php } ?>
+				<!-- LANGUAGES -->
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-comments-o"></i>
+						<?php echo WT_I18N::translate('Language'); ?>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<?php if (WT_I18N::installed_languages()) { ?>
+						<?php foreach (WT_I18N::installed_languages() as $lang => $language) : ?>
+						<li role="presentation" <?php echo $lang===WT_LOCALE ? 'class="active"' : '' ?>>
+							<a href="<?php echo get_query_url(array('lang'=>$lang), '&amp;'); ?>">
+								<?php echo $language; ?>
+							</a>
+						</li>
+						<?php endforeach; ?>
+						<?php } else { ?>
+							<li class="disabled">
+								<a href="#">
+									<!-- Cannot translate this - obviously! -->
+									No languages installed
+								</a>
+							</li>
+						<?php } ?>
+					</ul>
+				</li>
+				<!-- SIGN OUT -->
+				<li>
+					<a href="logout.php">
+						<i class="fa fa-sign-out"></i>
+						<?php echo /* I18N: Menu item */ WT_I18N::translate('Logout'); ?>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<?php foreach (WT_FlashMessages::getMessages() as $message): ?>
+		<p class="alert alert-info alert-dismissible" role="alert">
+			<?php echo $message; ?>
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		</p>
+		<?php endforeach; ?>
+
+		<div id="content">

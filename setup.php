@@ -90,7 +90,7 @@ header('Content-Type: text/html; charset=UTF-8');
 	</head>
 	<body>
 		<h1>
-			<?php echo WT_I18N::translate('Setup wizard for <b>webtrees</b>'); ?>
+			<?php echo WT_I18N::translate('Setup wizard for webtrees'); ?>
 		</h1>
 <?php
 
@@ -182,7 +182,7 @@ if (!isset($_POST['lang'])) {
 		'</p><p>',
 		WT_I18N::translate('If you try to exceed these limits, you may experience server time-outs and blank pages.'),
 		'</p><p>',
-		WT_I18N::translate('If your server’s security policy permits it, you will be able to request increased memory or CPU time using the <b>webtrees</b> administration page.  Otherwise, you will need to contact your server’s administrator.'),
+		WT_I18N::translate('If your server’s security policy permits it, you will be able to request increased memory or CPU time using the webtrees administration page.  Otherwise, you will need to contact your server’s administrator.'),
 		'</p>';
 	if (!$errors) {
 		echo '<input type="hidden" name="maxcpu" value="', $maxcpu, '">';
@@ -258,7 +258,7 @@ try {
 if (empty($_POST['dbuser']) || !WT_DB::isConnected() || !$db_version_ok) {
 	echo
 		'<h2>', WT_I18N::translate('Connection to database server'), '</h2>',
-		'<p>', WT_I18N::translate('<b>webtrees</b> needs a MySQL database, version %s or later.', WT_REQUIRED_MYSQL_VERSION), '</p>',
+		'<p>', WT_I18N::translate('webtrees needs a MySQL database, version %s or later.', WT_REQUIRED_MYSQL_VERSION), '</p>',
 		'<p>', WT_I18N::translate('Your server’s administrator will provide you with the connection details.'), '</p>',
 		'<fieldset><legend>', WT_I18N::translate('Database connection'), '</legend>',
 		'<table border="0"><tr><td>',
@@ -396,7 +396,7 @@ if (empty($_POST['wtname']) || empty($_POST['wtuser']) || strlen($_POST['wtpass'
 	echo
 		'<h2>', WT_I18N::translate('System settings'), '</h2>',
 		'<h3>', WT_I18N::translate('Administrator account'), '</h3>',
-		'<p>', WT_I18N::translate('You need to set up an administrator account.  This account can control all aspects of this <b>webtrees</b> installation.  Please choose a strong password.'), '</p>',
+		'<p>', WT_I18N::translate('You need to set up an administrator account.  This account can control all aspects of this webtrees installation.  Please choose a strong password.'), '</p>',
 		'<fieldset><legend>', WT_I18N::translate('Administrator account'), '</legend>',
 		'<table border="0"><tr><td>',
 		WT_I18N::translate('Your name'), '</td><td>',

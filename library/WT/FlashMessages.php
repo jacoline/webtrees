@@ -40,7 +40,7 @@ class WT_FlashMessages {
 		foreach ($flash_messenger->getCurrentMessages() as $message) {
 			$messages[] = $message;
 		}
-    $flash_messenger->clearCurrentMessages();
+  		$flash_messenger->clearCurrentMessages();
 
 		return $messages;
 	}

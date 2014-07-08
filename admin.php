@@ -49,9 +49,8 @@ if (preg_match('/^[0-9.]+\|[0-9.]+\|/', $latest_version_txt)) {
 $old_files = array();
 foreach (old_paths() as $path) {
 	if (file_exists($path)) {
-		delete_recursively($path);
-		// we may not have permission to delete.  Is it still there?
-		if (file_exists($path)) {
+		if (!WT_File::delete($path)) {
+			// we may not have permission to delete.
 			$old_files[] = $path;
 		}
 	}
@@ -97,12 +96,22 @@ $user_languages = WT_DB::prepare(
 $stats = new WT_Stats(WT_GEDCOM);
 
 ?>
+
+	<div class="col-xs-4">
+		<?php echo /* I18N: The local time on the server */ WT_I18N::translate('Server time'), ' — ', format_timestamp(WT_SERVER_TIMESTAMP); ?>
+		<br>
+		<?php echo /* I18N: The local time on the client/browser */ WT_I18N::translate('Client time'), ' — ', format_timestamp(WT_CLIENT_TIMESTAMP); ?>
+		<br>
+		<?php echo /* I18N: Timezone - http://en.wikipedia.org/wiki/UTC */ WT_I18N::translate('UTC'), ' — ', format_timestamp(WT_TIMESTAMP); ?>
+	</div>
+
+
 <div id="content_container" style="visibility: hidden;">
 	<div id="x">
 		<h2><?php echo WT_WEBTREES, ' ', WT_VERSION; ?></h2>
 		<div id="about">
 			<p>
-				<?php echo WT_I18N::translate('These pages provide access to all the configuration settings and management tools for this <b>webtrees</b> site.'); ?>
+				<?php echo WT_I18N::translate('These pages provide access to all the configuration settings and management tools for this webtrees site.'); ?>
 			</p>
 			<p>
 				<?php echo /* I18N: %s is a URL/link to the project website */ WT_I18N::translate('Support and documentation can be found at %s.', ' <a class="current" href="http://webtrees.net/">webtrees.net</a>'); ?>
@@ -638,21 +647,4 @@ function old_paths() {
 		WT_ROOT.'themes/webtrees/css-1.5.3',
 		WT_ROOT.'themes/xenea/css-1.5.3',
 	);
-}
-
-// Delete a file or folder, ignoring errors
-function delete_recursively($path) {
-	@chmod($path, 0777);
-	if (is_dir($path)) {
-		$dir=opendir($path);
-		while ($dir!==false && (($file=readdir($dir))!==false)) {
-			if ($file!='.' && $file!='..') {
-				delete_recursively($path.'/'.$file);
-			}
-		}
-		closedir($dir);
-		@rmdir($path);
-	} else {
-		@unlink($path);
-	}
 }

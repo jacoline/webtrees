@@ -66,20 +66,30 @@ if ($row->import_offset==$row->import_total) {
 	// Finished?  Show the maintenance links, similar to admin_trees_manage.php
 	WT_DB::exec("COMMIT");
 	$controller->addInlineJavascript(
-		'jQuery("#import'. $gedcom_id.'").toggle();'.
-		'jQuery("#actions'.$gedcom_id.'").toggle();'
+		'jQuery("#import'. $gedcom_id.'").addClass("hidden");'.
+		'jQuery("#actions'.$gedcom_id.'").removeClass("hidden");'
 	);
 	exit;
 }
 
 // Calculate progress so far
-$percent=100*(($row->import_offset) / $row->import_total);
+$percent=round(100*(($row->import_offset) / $row->import_total), 1);
 $status=WT_I18N::translate('Loading data from GEDCOM: %.1f%%', $percent);
 
-echo '<div id="progressbar', $gedcom_id, '"><div style="position:absolute;">', $status, '</div></div>';
-$controller->addInlineJavascript(
-	'jQuery("#progressbar'.$gedcom_id.'").progressbar({value: '.round($percent, 1).'});'
-);
+?>
+<div class="progress" id="progress<?php echo $gedcom_id; ?>">
+	<div
+		class="progress-bar"
+		role="progressbar"
+		aria-valuenow="<?php echo $percent; ?>"
+		aria-valuemin="0"
+		aria-valuemax="100"
+		style="width: <?php echo $percent; ?>%; min-width: 40px;"
+	>
+		<?php echo $percent; ?>%
+	</div>
+</div>
+<?php
 
 $first_time=($row->import_offset==0);
 // Run for one second.  This keeps the resource requirements low.
@@ -224,7 +234,7 @@ for ($end_time=microtime(true)+1.0; microtime(true)<$end_time; ) {
 		} else {
 			// A fatal error.  Nothing we can do?
 			echo '<span class="error">', $ex->getMessage(), '</span>';
-			$controller->addInlineJavascript('jQuery("#actions'.$gedcom_id.'").toggle();');
+			$controller->addInlineJavascript('jQuery("#actions'.$gedcom_id.'").removeClass("hidden");');
 		}
 		exit;
 	}

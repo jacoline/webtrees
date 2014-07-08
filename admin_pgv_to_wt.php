@@ -63,7 +63,7 @@ if ($PGV_PATH) {
 		}
 		$wt_config=parse_ini_file(WT_ROOT.'data/config.ini.php');
 		if ($DBHOST!=$wt_config['dbhost']) {
-			$error=WT_I18N::translate('PhpGedView must use the same database as <b>webtrees</b>');
+			$error=WT_I18N::translate('PhpGedView must use the same database as webtrees');
 			unset($wt_config);
 		} else {
 			unset($wt_config);
@@ -79,7 +79,7 @@ if ($PGV_PATH) {
 			} catch (PDOException $ex) {
 				$error=
 					/* I18N: %s is a database name/identifier */
-					WT_I18N::translate('<b>webtrees</b> cannot connect to the PhpGedView database: %s.', $DBNAME.'@'.$DBHOST).
+					WT_I18N::translate('webtrees cannot connect to the PhpGedView database: %s.', $DBNAME.'@'.$DBHOST).
 					'<br>'.
 					/* I18N: %s is an error message */
 					WT_I18N::translate('MySQL gave the error: %s', $ex->getMessage());
@@ -114,7 +114,7 @@ if ($error || !$PGV_PATH) {
 	echo '<div id="container">';
 	echo
 		'<h2>',
-		WT_I18N::translate('PhpGedView to <b>webtrees</b> transfer wizard'),
+		WT_I18N::translate('PhpGedView to webtrees transfer wizard'),
 		help_link('PGV_WIZARD'),
 		'</h2>';
 	if ($error) {

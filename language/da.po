@@ -592,8 +592,8 @@ msgid "9th"
 msgstr "9."
 
 #: help_text.php:559
-msgid "<b>GUID</b> in this context is an acronym for “Globally Unique ID”.<br><br>GUIDs are intended to help identify each individual in a manner that is repeatable, so that central organizations such as the Family History Center of the LDS church in Salt Lake City, or even compatible programs running on your own server, can determine whether they are dealing with the same individual no matter where the GEDCOM originates.  The goal of the Family History Center is to have a central repository of genealogical data and expose it through web services. This will enable any program to access the data and update their data within it.<br><br>If you do not intend to share this GEDCOM with anyone else, you do not need to let <b>webtrees</b> create these GUIDs; however, doing so will do no harm other than increasing the size of your GEDCOM."
-msgstr "<b>GUID</b> er i denne sammenhæng en forkortelse for «Globally Unique ID».<br><br>GUIDs er beregnet til at identificere personer på en entydig måde, så man kan afgøre om det er den samme person man sammenligner uanset hvor materialet stammer fra. <br><br>Hvis du ikke ønsker at dele dine GEDCOM oplysninger med andre er det ikke nødvendigt at <b>webtrees</b>danner disse GUIDs. Imidlertid vil det ikke være til nogen skade at bruge GUIDs. Størrelsen af GEDCOM-filen bliver blot lidt større."
+msgid "<b>GUID</b> in this context is an acronym for “Globally Unique ID”.<br><br>GUIDs are intended to help identify each individual in a manner that is repeatable, so that central organizations such as the Family History Center of the LDS church in Salt Lake City, or even compatible programs running on your own server, can determine whether they are dealing with the same individual no matter where the GEDCOM originates.  The goal of the Family History Center is to have a central repository of genealogical data and expose it through web services. This will enable any program to access the data and update their data within it.<br><br>If you do not intend to share this GEDCOM with anyone else, you do not need to let webtrees create these GUIDs; however, doing so will do no harm other than increasing the size of your GEDCOM."
+msgstr "<b>GUID</b> er i denne sammenhæng en forkortelse for «Globally Unique ID».<br><br>GUIDs er beregnet til at identificere personer på en entydig måde, så man kan afgøre om det er den samme person man sammenligner uanset hvor materialet stammer fra. <br><br>Hvis du ikke ønsker at dele dine GEDCOM oplysninger med andre er det ikke nødvendigt at webtreesdanner disse GUIDs. Imidlertid vil det ikke være til nogen skade at bruge GUIDs. Størrelsen af GEDCOM-filen bliver blot lidt større."
 
 #: help_text.php:1318
 msgid "<b>Important note:</b> The transfer wizard is not able to assist with moving media items. You will need to set up and move or copy your media configuration and objects separately after the transfer wizard is finished."
@@ -608,32 +608,28 @@ msgid "<b>Please note:</b> Private information of living individuals will only b
 msgstr "<b>Bemærk venligst:</b> Private informationer for nulevende personer udleveres kun til nære familiemedlemmer. Du vil blive bedt om at bekræfte din tilknytning før kan modtage private data. Af og til kan data for døde personers også være private. Hvis det er tilfældet så skyldes det, at der ikke er tilstrækkelig information til at afgøre om personen er i live eller ej. Vi har derfor sandsynligvis ikke yderligere information på denne person.<br><br>Inden du spørger os om en person så kontroller lige at det er den rigtige person ved at dobbeltchecke datoer, steder og nære slægtninge. Hvis du sender ændringer til de genealogiske data, bedes du vedlægge de kilder, hvor du har fået oplysningerne fra."
 
 #: help_text.php:1063
-msgid "<b>webtrees</b> allows you to copy up to 10 facts, with all their details, to a clipboard.  This clipboard is different from the clippings cart that you can use to export portions of your database.<br><br>You can select any of the facts from the clipboard and copy the selected fact to the individual, family, media, source, or repository record currently being edited.  However, you cannot copy facts of dissimilar record types.  For example, you cannot copy a marriage fact to a source or an individual record since the marriage fact is associated only with family records.<br><br>This is very helpful when entering similar facts, such as census facts, for many individuals or families."
-msgstr "I <b>webtrees</b> kan du kopiere op til 10 fakta, inklusive alle detaljer, til en kopiholder. Kopiholderen er forskellig fra udklipsholderen som du bruger til eksportere dele af din database med.<br><br>Du kan vælge enhver fakta fra kopiholderen og kopiere det til den post du er ved at redigere. Imidlertid kan du ikke kopiere en faktatype til en helt anden faktatype. Du kan fx ikke kopiere vielsesfakta ind i poster til kilder eller personer, da vielser kun er tilknyttet familieposter.<br><br>Kopiholderen er meget nyttig når man skal bruge de samme fakta til mange personer eller familier."
+msgid "webtrees allows you to copy up to 10 facts, with all their details, to a clipboard.  This clipboard is different from the clippings cart that you can use to export portions of your database.<br><br>You can select any of the facts from the clipboard and copy the selected fact to the individual, family, media, source, or repository record currently being edited.  However, you cannot copy facts of dissimilar record types.  For example, you cannot copy a marriage fact to a source or an individual record since the marriage fact is associated only with family records.<br><br>This is very helpful when entering similar facts, such as census facts, for many individuals or families."
+msgstr "I webtrees kan du kopiere op til 10 fakta, inklusive alle detaljer, til en kopiholder. Kopiholderen er forskellig fra udklipsholderen som du bruger til eksportere dele af din database med.<br><br>Du kan vælge enhver fakta fra kopiholderen og kopiere det til den post du er ved at redigere. Imidlertid kan du ikke kopiere en faktatype til en helt anden faktatype. Du kan fx ikke kopiere vielsesfakta ind i poster til kilder eller personer, da vielser kun er tilknyttet familieposter.<br><br>Kopiholderen er meget nyttig når man skal bruge de samme fakta til mange personer eller familier."
 
 #. I18N: %s is a database name/identifier
 #: admin_pgv_to_wt.php:79
 #, php-format
-msgid "<b>webtrees</b> cannot connect to the PhpGedView database: %s."
-msgstr "<b>webtrees</b> kan ikke forbinde til PhpGedView databasen: %s."
+msgid "webtrees cannot connect to the PhpGedView database: %s."
+msgstr "webtrees kan ikke forbinde til PhpGedView databasen: %s."
 
 #: help_text.php:1180
-msgid "<b>webtrees</b> has several different contact methods.  The administrator determines which method will be used to contact him.  You have control over the method to be used to contact <u>you</u>.  Depending on site configuration, some of the listed methods may not be available to you."
-msgstr "<b>webtrees</b> har forskellige kontaktmetoder.  Administratoren bestemmer hvilken metode der vil blive brugt til at kontakte denne. Du vælger selv hvilken metode der bruges til at kontakte <u>dig</u>.  Afhængig af webstedets opsætning, er nogle af de viste metoder måske ikke tilgængelige for dig."
+msgid "webtrees has several different contact methods.  The administrator determines which method will be used to contact him.  You have control over the method to be used to contact <u>you</u>.  Depending on site configuration, some of the listed methods may not be available to you."
+msgstr "webtrees har forskellige kontaktmetoder.  Administratoren bestemmer hvilken metode der vil blive brugt til at kontakte denne. Du vælger selv hvilken metode der bruges til at kontakte <u>dig</u>.  Afhængig af webstedets opsætning, er nogle af de viste metoder måske ikke tilgængelige for dig."
 
 #: setup.php:261
 #, php-format
-msgid "<b>webtrees</b> needs a MySQL database, version %s or later."
-msgstr "<b>webtrees</b> kræver MySQL database version %s eller nyere."
+msgid "webtrees needs a MySQL database, version %s or later."
+msgstr "webtrees kræver MySQL database version %s eller nyere."
 
 #. I18N: Help text for the “Messages” site configuration setting
 #: help_text.php:734
-msgid "<b>webtrees</b> needs to send emails, such as password reminders and site notifications.  To do this, it can use this server’s built in PHP mail facility (which is not always available) or an external SMTP (mail-relay) service, for which you will need to provide the connection details."
-msgstr "<b>webtrees</b> skal kunne sende emails, såsom glemte kodeord og notifikationer. Du kan gøre brug af serverens PHP-mail-egenskaber (hvilket ikke altid er tilgængelige) eller en ekstern SMTP (mail-relay) service, for hvilken du skal indtaste forbindelsesoplysningerne."
-
-#: help_text.php:778
-msgid "<b>webtrees</b> reply address"
-msgstr "<b>webtrees</b> adresse til besvarelser"
+msgid "webtrees needs to send emails, such as password reminders and site notifications.  To do this, it can use this server’s built in PHP mail facility (which is not always available) or an external SMTP (mail-relay) service, for which you will need to provide the connection details."
+msgstr "webtrees skal kunne sende emails, såsom glemte kodeord og notifikationer. Du kan gøre brug af serverens PHP-mail-egenskaber (hvilket ikke altid er tilgængelige) eller en ekstern SMTP (mail-relay) service, for hvilken du skal indtaste forbindelsesoplysningerne."
 
 #: login.php:150
 msgid "<center><b>Welcome to this genealogy website</b></center><br>Access to this site is permitted to <u>authorized</u> users only.<br><br>If you have a user account you can login on this page.  If you don’t have a user account, you can apply for one by clicking on the appropriate link below.<br><br>After verifying your information, the administrator will either approve or decline your account application.  You will receive an email message when your application has been approved."
@@ -1409,8 +1405,8 @@ msgid "Add unlinked records"
 msgstr "Tilføj ikke linkede poster"
 
 #: admin_trees_config.php:696
-msgid "Add watermarks to thumbnails?"
-msgstr "Tilføj vandmærke på miniaturer?"
+msgid "Add watermarks to thumbnails"
+msgstr "Tilføj vandmærke på miniaturer"
 
 #: modules_v3/relatives/module.php:160
 msgid "Add wife"
@@ -1476,8 +1472,8 @@ msgid "Administrators"
 msgstr "Administratorer"
 
 #: help_text.php:1284
-msgid "Administrators sometimes need to clean up and correct the data submitted by users.  For example, they might need to correct the PLAC location to include the country.  When administrators make such corrections, information about the original change is normally replaced.  This may not be desirable.<br><br>When this option is selected, <b>webtrees</b> will retain the original change information instead of replacing it with that of the current session.  With this option selected, administrators also have the ability to modify or delete the information associated with the original CHAN tag."
-msgstr "Administratorer er af og til nødt til at rense og korrigere i de data som brugerne kommer med. For eksempel kan det være nødvendigt at inkludere landet i PLAC koden. Når administratorer foretage sådanne korrektioner, er oplysninger om den oprindelige ændringen normalt udskiftet. Dette er ikke altid ønskeligt.<br><br>Når denne mulighed er valgt vil <b>webtrees</b> fastholde den oprindelige ændringsoplysning i stedet for at erstatte den med den aktuelle session. Samtidig vil administratoren også have mulighed for at ændre eller slette informationen der var tilknyttet den originale CHAN kode."
+msgid "Administrators sometimes need to clean up and correct the data submitted by users.  For example, they might need to correct the PLAC location to include the country.  When administrators make such corrections, information about the original change is normally replaced.  This may not be desirable.<br><br>When this option is selected, webtrees will retain the original change information instead of replacing it with that of the current session.  With this option selected, administrators also have the ability to modify or delete the information associated with the original CHAN tag."
+msgstr "Administratorer er af og til nødt til at rense og korrigere i de data som brugerne kommer med. For eksempel kan det være nødvendigt at inkludere landet i PLAC koden. Når administratorer foretage sådanne korrektioner, er oplysninger om den oprindelige ændringen normalt udskiftet. Dette er ikke altid ønskeligt.<br><br>Når denne mulighed er valgt vil webtrees fastholde den oprindelige ændringsoplysning i stedet for at erstatte den med den aktuelle session. Samtidig vil administratoren også have mulighed for at ændre eller slette informationen der var tilknyttet den originale CHAN kode."
 
 #: library/WT/Gedcom/Code/Pedi.php:43
 msgctxt "Female pedigree"
@@ -3702,8 +3698,8 @@ msgid "Click a row, then drag-and-drop to re-order media "
 msgstr "Klik på en række og træk-og-slip for at gensortere medier "
 
 #: admin_trees_manage.php:271
-msgid "Click here for PhpGedView to <b>webtrees</b> transfer wizard"
-msgstr "Klik her for guiden PhpGedView til <b>webtree</b> overførsel"
+msgid "Click here for PhpGedView to webtrees transfer wizard"
+msgstr "Klik her for guiden PhpGedView til webtrees overførsel"
 
 #: modules_v3/faq/module.php:282
 msgid "Click here to add, edit, or delete"
@@ -5261,8 +5257,8 @@ msgid "Duplicate user name.  A user with that user name already exists.  Please 
 msgstr "Brugernavnet eksisterer allerede. Vælg venligst et andet brugernavn."
 
 #: help_text.php:779
-msgid "E-mail address to be used in the “From:” field of e-mails that <b>webtrees</b> creates automatically.<br><br><b>webtrees</b> can automatically create e-mails to notify administrators of changes that need to be reviewed.  <b>webtrees</b> also sends notification e-mails to users who have requested an account.<br><br>Usually, the “From:” field of these automatically created e-mails is something like <i>From: webtrees-noreply@yoursite</i> to show that no response to the e-mail is required.  To guard against spam or other e-mail abuse, some e-mail systems require each message’s “From:” field to reflect a valid e-mail account and will not accept messages that are apparently from account <i>webtrees-noreply</i>."
-msgstr "E- mail adresse der skal bruges i &laquo;Fra:&raquo;-feltet for de e-mails som <b>webtrees</b> automatisk opretter.<br><br><b>webtrees</b> kan automatisk oprette e-mails til at underrette administratorer om ændringer, som skal kontrolleres. <b>webtrees</b> sender også besked via e-mails til brugere, der har anmodet om en brugerkonto.<br><br>Normalt er &laquo;Fra:&raquo-feltet i disse automatiske e-mail udfyldt med <i>Fra: webtrees-noreply@yoursite</i> for at vise at det ikke er nødvendigt at svare på denne e-mail. For at beskytte mod spam eller anden misbrug af e-mail så kræver nogle e-mail systemer at &laquo;Fra:&raquo;-feltet indeholder en gyldig e-mail adresse, og vil ikke acceptere beskeder der blot kommer fra <i>webtrees-noreply</i>."
+msgid "E-mail address to be used in the “From:” field of e-mails that webtrees creates automatically.<br><br>webtrees can automatically create e-mails to notify administrators of changes that need to be reviewed.  webtrees also sends notification e-mails to users who have requested an account.<br><br>Usually, the “From:” field of these automatically created e-mails is something like <i>From: webtrees-noreply@yoursite</i> to show that no response to the e-mail is required.  To guard against spam or other e-mail abuse, some e-mail systems require each message’s “From:” field to reflect a valid e-mail account and will not accept messages that are apparently from account <i>webtrees-noreply</i>."
+msgstr "E- mail adresse der skal bruges i &laquo;Fra:&raquo;-feltet for de e-mails som webtrees automatisk opretter.<br><br>webtrees kan automatisk oprette e-mails til at underrette administratorer om ændringer, som skal kontrolleres. webtrees sender også besked via e-mails til brugere, der har anmodet om en brugerkonto.<br><br>Normalt er &laquo;Fra:&raquo-feltet i disse automatiske e-mail udfyldt med <i>Fra: webtrees-noreply@yoursite</i> for at vise at det ikke er nødvendigt at svare på denne e-mail. For at beskytte mod spam eller anden misbrug af e-mail så kræver nogle e-mail systemer at &laquo;Fra:&raquo;-feltet indeholder en gyldig e-mail adresse, og vil ikke acceptere beskeder der blot kommer fra <i>webtrees-noreply</i>."
 
 #: help_text.php:1175
 msgid "Each source records specific events, generally for a given date range and for a place jurisdiction.  For example a Census records census events and church records record birth, marriage, and death events.<br><br>Select the events that are recorded by this source from the list of events provided. The date should be specified in a range format such as <i>FROM 1900 TO 1910</i>. The place jurisdiction is the name of the lowest jurisdiction that encompasses all lower-level places named in this source. For example, “Oneida, Idaho, USA” would be used as a source jurisdiction place for events occurring in the various towns within Oneida County. “Idaho, USA” would be the source jurisdiction place if the events recorded took place not only in Oneida County but also in other counties in Idaho."
@@ -6433,8 +6429,8 @@ msgid "For help with genealogy questions contact"
 msgstr "For hjælp med slægtsspørgsmål, kontakt&nbsp;"
 
 #: help_text.php:1494
-msgid "For optimal display on the internet, <b>webtrees</b> uses the UTF-8 character set.  Some programs, Family Tree Maker for example, do not support importing GEDCOM files encoded in UTF-8.  Checking this box will convert the file from <b>UTF-8</b> to <b>ANSI (ISO-8859-1)</b>.<br><br>The format you need depends on the program you use to work with your downloaded GEDCOM file.  If you aren’t sure, consult the documentation of that program.<br><br>Note that for special characters to remain unchanged, you will need to keep the file in UTF-8 and convert it to your program’s method for handling these special characters by some other means.  Consult your program’s manufacturer or author.<br><br>This <a href=\"http://en.wikipedia.org/wiki/UTF-8\" target=\"_blank\" title=\"Wikipedia article\"><b>Wikipedia article</b></a> contains comprehensive information and links about UTF-8."
-msgstr "For optimal visning på Internettet gør <b>webtrees</b> bruf af UTF-8 charactersettet. Enkelte programmer, såsom Family Tree Maker understøtter ikke import af GEDCOM-filer i UTF-8-formatet. Sæt flueben her for at konvertere filen fra <b>UTF-8</b> til <b>ANSI (ISO-8859-1)</b>.<br><br>Formatet afhænger af hvilket program du arbejder i med din downloadede GEDCOM-fil. Hvis du ikke er sikker bør du undersøge dokumentationen til programmet.<br><br>Bemærk, at for at bevare specialtegn skal du downloade filen i UTF-8-format og konvertere til dit program på andre måder. Forhør eventuelt producenten af programmet<br><br>Denne<a href=\"http://en.wikipedia.org/wiki/UTF-8\" target=\"_blank\" title=\"Wikipedia article\"><b>Wikipedia artikel</b></a> indeholder omfattende information og links omhandlende UTF-8."
+msgid "For optimal display on the internet, webtrees uses the UTF-8 character set.  Some programs, Family Tree Maker for example, do not support importing GEDCOM files encoded in UTF-8.  Checking this box will convert the file from <b>UTF-8</b> to <b>ANSI (ISO-8859-1)</b>.<br><br>The format you need depends on the program you use to work with your downloaded GEDCOM file.  If you aren’t sure, consult the documentation of that program.<br><br>Note that for special characters to remain unchanged, you will need to keep the file in UTF-8 and convert it to your program’s method for handling these special characters by some other means.  Consult your program’s manufacturer or author.<br><br>This <a href=\"http://en.wikipedia.org/wiki/UTF-8\" target=\"_blank\" title=\"Wikipedia article\"><b>Wikipedia article</b></a> contains comprehensive information and links about UTF-8."
+msgstr "For optimal visning på Internettet gør webtrees bruf af UTF-8 charactersettet. Enkelte programmer, såsom Family Tree Maker understøtter ikke import af GEDCOM-filer i UTF-8-formatet. Sæt flueben her for at konvertere filen fra <b>UTF-8</b> til <b>ANSI (ISO-8859-1)</b>.<br><br>Formatet afhænger af hvilket program du arbejder i med din downloadede GEDCOM-fil. Hvis du ikke er sikker bør du undersøge dokumentationen til programmet.<br><br>Bemærk, at for at bevare specialtegn skal du downloade filen i UTF-8-format og konvertere til dit program på andre måder. Forhør eventuelt producenten af programmet<br><br>Denne<a href=\"http://en.wikipedia.org/wiki/UTF-8\" target=\"_blank\" title=\"Wikipedia article\"><b>Wikipedia artikel</b></a> indeholder omfattende information og links omhandlende UTF-8."
 
 #. I18N: Help text for the “Show list of family trees” site configuration setting
 #: help_text.php:417
@@ -7293,8 +7289,8 @@ msgid "If an individual was not known by their first given name, the preferred n
 msgstr "Hvis et individ ikke var kendt ved sit fornavn, skal det foretrukne navn markeres med en stjerne: <%s>John Paul* /Smith/<%s>"
 
 #: help_text.php:466
-msgid "If the number of times that a certain surname occurs is lower than the threshold, it will not appear in the list.  It can be added here manually.  If more than one surname is entered, they must be separated by a comma.  <b>Surnames are case-sensitive.</b>"
-msgstr "Hvis et bestemt efternavn ikke findes tilstrækkelig mange gange til at kunne blive vist i listen over “Oftest forekommende efternavne”, kan den her tilføjes manuelt. Hvis der tilføjes flere navne skal de adskilles med et komma. <b>Efternavne er versalfølsomme.</b>"
+msgid "If the number of times that a certain surname occurs is lower than the threshold, it will not appear in the list.  It can be added here manually.  If more than one surname is entered, they must be separated by a comma.  Surnames are case-sensitive."
+msgstr "Hvis et bestemt efternavn ikke findes tilstrækkelig mange gange til at kunne blive vist i listen over “Oftest forekommende efternavne”, kan den her tilføjes manuelt. Hvis der tilføjes flere navne skal de adskilles med et komma.  Efternavne er versalfølsomme."
 
 #: help_text.php:819
 msgid "If the option <b>Allow visitors to request account registration</b> is enabled this setting controls whether the admin must approve the registration.<br><br>Setting this to <b>Yes</b> will require that all new users first verify themselves and then be approved by an admin before they can login.  With this setting on <b>No</b>, the “Approved by administrator” checkbox will be checked automatically when users verify their account, thus allowing an immediate login afterwards without admin intervention."
@@ -7374,12 +7370,12 @@ msgid "If you try to exceed these limits, you may experience server time-outs an
 msgstr "Hvis du forsøger at overgå disse grænser, kan du opleve time-outs fra serveren og blanke sider."
 
 #: help_text.php:471
-msgid "If you want to remove a surname from the Common Surname list without increasing the threshold value, you can do that by entering the surname here.  If more than one surname is entered, they must be separated by a comma. <b>Surnames are case-sensitive</b>.  Surnames entered here will also be removed from the “Top surnames” list on the “Home page”."
-msgstr "Hvis du ønsker at fjerne et bestemt efternavn fra listen med \"Oftest forekommende efternavne\", kan du anføre efternavnet her. Hvis der tilføjes flere navne, skal de adskilles med et komma. <b>Efternavne er versalfølsomme.</b>"
+msgid "If you want to remove a surname from the Common Surname list without increasing the threshold value, you can do that by entering the surname here.  If more than one surname is entered, they must be separated by a comma.  Surnames are case-sensitive.  Surnames entered here will also be removed from the “Top surnames” list on the “Home page”."
+msgstr "Hvis du ønsker at fjerne et bestemt efternavn fra listen med “Oftest forekommende efternavne”, kan du anføre efternavnet her. Hvis der tilføjes flere navne, skal de adskilles med et komma.  Efternavne er versalfølsomme."
 
 #: setup.php:185
-msgid "If your server’s security policy permits it, you will be able to request increased memory or CPU time using the <b>webtrees</b> administration page.  Otherwise, you will need to contact your server’s administrator."
-msgstr "Hvis din servers sikkerhedspolitik tillader det, kan du ændre hukommelses- og CPU-tidsgrænserne på <b>webtrees</b>' administrationsside. Ellers skal du kontakte din serveradministrator."
+msgid "If your server’s security policy permits it, you will be able to request increased memory or CPU time using the webtrees administration page.  Otherwise, you will need to contact your server’s administrator."
+msgstr "Hvis din servers sikkerhedspolitik tillader det, kan du ændre hukommelses- og CPU-tidsgrænserne på webtrees' administrationsside. Ellers skal du kontakte din serveradministrator."
 
 #. I18N: Help text for the "Website URL" site configuration setting
 #: help_text.php:829
@@ -8451,8 +8447,8 @@ msgid "Manuscript"
 msgstr "Manuskript"
 
 #: help_text.php:564
-msgid "Many genealogy programs create GEDCOM files with custom tags, and <b>webtrees</b> understands most of them.  When unrecognized tags are found, this option lets you choose whether to ignore them or display a warning message."
-msgstr "Mange slægtsforskningsprogrammer opretter GEDCOM-filer med brugerdefinerede koder, og <b>webtrees</b> forstår de fleste af dem. Denne indstillinger bestemmer om ukendte koder skal ignoreres, eller der skal vises en fejlmeddelelse."
+msgid "Many genealogy programs create GEDCOM files with custom tags, and webtrees understands most of them.  When unrecognized tags are found, this option lets you choose whether to ignore them or display a warning message."
+msgstr "Mange slægtsforskningsprogrammer opretter GEDCOM-filer med brugerdefinerede koder, og webtrees forstår de fleste af dem. Denne indstillinger bestemmer om ukendte koder skal ignoreres, eller der skal vises en fejlmeddelelse."
 
 #. I18N: Help text for the “Sending server name” site configuration setting
 #: help_text.php:759
@@ -10542,14 +10538,10 @@ msgid "Photo"
 msgstr "Foto"
 
 #: admin_pgv_to_wt.php:63
-msgid "PhpGedView must use the same database as <b>webtrees</b>"
-msgstr "PhpgedView skal bruge den samme type database som <b>webtrees</b>"
+msgid "PhpGedView must use the same database as webtrees"
+msgstr "PhpgedView skal bruge den samme type database som webtrees"
 
 #: admin_pgv_to_wt.php:114 help_text.php:1303
-msgid "PhpGedView to <b>webtrees</b> transfer wizard"
-msgstr "PhpGedView til <b>webtrees</b> overførelsesguide"
-
-#: admin_pgv_to_wt.php:34
 msgid "PhpGedView to webtrees transfer wizard"
 msgstr "PhpGedView til webtrees overførsels-guide"
 
@@ -11904,19 +11896,19 @@ msgstr "Send besked til alle"
 #: edit_changes.php:198 includes/functions/functions_print.php:321
 #: library/WT/Stats.php:3441 library/WT/Stats.php:3443 message.php:114
 #: modules_v3/user_messages/module.php:69
-msgid "Send message"
+msgid "Send a message"
 msgstr "Send besked"
 
 #: admin_users_bulk.php:39
-msgid "Send message to all users"
+msgid "Send a message to all users"
 msgstr "Send besked til alle brugere"
 
 #: admin_users_bulk.php:44
-msgid "Send message to users who have never logged in"
+msgid "Send a message to users who have never logged in"
 msgstr "Send meddelelse til brugere, der aldrig har logget ind"
 
 #: admin_users_bulk.php:49
-msgid "Send message to users who have not logged in for 6 months"
+msgid "Send a message to users who have not logged in for 6 months"
 msgstr "Send meddelelse til brugere, der ikke har logget ind i 6 måneder"
 
 #: modules_v3/review_changes/module.php:161
@@ -12066,8 +12058,8 @@ msgid "Setting this to <b>Yes</b> will place links on individuals, sources, and 
 msgstr "Vælges <b>Ja</b>, bliver der oprettet en link til personer, kilder, og familier, som gør det muligt for brugere at åbne et separat vindue med GEDCOM-koden hentet direkte fra GEDCOM-filen."
 
 #: setup.php:92
-msgid "Setup wizard for <b>webtrees</b>"
-msgstr "Opsætningsguide for <b>webtrees</b>"
+msgid "Setup wizard for webtrees"
+msgstr "Opsætningsguide for webtrees"
 
 #: library/WT/Date/French.php:121
 msgid "Sextidi"
@@ -12389,7 +12381,7 @@ msgid "Show highlight images in individual boxes"
 msgstr "Vis billede ud for personen"
 
 #: help_text.php:834
-msgid "Show hit counters on Portal and Individual pages."
+msgid "Show hit counters on portal and individual pages."
 msgstr "Vis tæller med antal hits på velkomstsiden og personsider."
 
 #: modules_v3/googlemap/help_text.php:78 modules_v3/googlemap/module.php:4363
@@ -12766,8 +12758,8 @@ msgid "Some genealogy applications create GEDCOM files that contain media filena
 msgstr "Nogle genealogi programmer opretter GEDCOM filer der indeholder medie-filnavne med hele stier. Disse stier vil ikke eksistere på webserveren. For at lade webtrees finde filen, skal den første del af stien fjernes."
 
 #: help_text.php:1050
-msgid "Some genealogy programs wrap notes at word boundaries while others wrap notes anywhere.  This can cause <b>webtrees</b> to run words together.  Setting this to <b>Yes</b> will add a space between words where they are wrapped in the original GEDCOM during the import process. If you have already imported the file you will need to re-import it."
-msgstr "Nogle slægtsprogrammer ombryder noter til næste linje efter et ord mens andre ombryder hvorsomhelst. Dette kan få <b>webtrees</b> til at sammensætte ord. Ved at indstille til <b>Ja</b> så vil der, under importeringen, blive tilføjet et ordmellemrum mellem ord hvor de er linjedelt i den originale GEDCOM. Hvis du allerede har importeret filen bliver du nødt til at importere den igen."
+msgid "Some genealogy programs wrap notes at word boundaries while others wrap notes anywhere.  This can cause webtrees to run words together.  Setting this to <b>Yes</b> will add a space between words where they are wrapped in the original GEDCOM during the import process. If you have already imported the file you will need to re-import it."
+msgstr "Nogle slægtsprogrammer ombryder noter til næste linje efter et ord mens andre ombryder hvorsomhelst. Dette kan få webtrees til at sammensætte ord. Ved at indstille til <b>Ja</b> så vil der, under importeringen, blive tilføjet et ordmellemrum mellem ord hvor de er linjedelt i den originale GEDCOM. Hvis du allerede har importeret filen bliver du nødt til at importere den igen."
 
 #: modules_v3/clippings/module.php:136
 msgid "Some items could not be added due to privacy restrictions"
@@ -13025,12 +13017,12 @@ msgid "Stop"
 msgstr "Stop"
 
 #: admin_trees_config.php:704
-msgid "Store watermarked full size images on server?"
-msgstr "Gem fuld størrelse billeder med vandmærke på server?"
+msgid "Store watermarked full size images on server"
+msgstr "Gem fuld størrelse billeder med vandmærke på server"
 
 #: admin_trees_config.php:712
-msgid "Store watermarked thumbnails on server?"
-msgstr "Gem miniaturer med vandmærke på server?"
+msgid "Store watermarked thumbnails on server"
+msgstr "Gem miniaturer med vandmærke på server"
 
 #. I18N: Name of a module
 #: modules_v3/stories/module.php:32 modules_v3/stories/module.php:403
@@ -13296,8 +13288,8 @@ msgid "The Media Viewer can show a link which, when clicked, will download the m
 msgstr "Det er muligt at tilføje et link i Mediefremviseren som giver mulighed for at downloade mediet til den lokale PC.<br><br>Dette link bør måske skjules af sikkerhedsmæssige årsager."
 
 #: help_text.php:1304
-msgid "The PGV to <b>webtrees</b> wizard is an automated process to assist administrators make the move from a PGV installation to a new <b>webtrees</b> one. It will transfer all PGV GEDCOM and other database information directly to your new <b>webtrees</b> database. The following requirements are necessary:"
-msgstr "PGV til <b>webtrees</b> guiden er en automatiseret proces der hjælper administratorer med at flytte fra en PGV installation til en ny <b>webtrees</b>. Den vil overføre alle PGV GEDCOM og andre databaseoplysninger direkte til din nye <b>webtrees</b> database. Følgende krav er nødvendige:"
+msgid "The PGV to webtrees wizard is an automated process to assist administrators make the move from a PGV installation to a new webtrees one. It will transfer all PGV GEDCOM and other database information directly to your new webtrees database. The following requirements are necessary:"
+msgstr "PGV til webtrees guiden er en automatiseret proces der hjælper administratorer med at flytte fra en PGV installation til en ny webtrees. Den vil overføre alle PGV GEDCOM og andre databaseoplysninger direkte til din nye webtrees database. Følgende krav er nødvendige:"
 
 #: save.php:256
 #, php-format
@@ -13325,8 +13317,8 @@ msgid "The clippings cart allows you to take extracts (“clippings”) from thi
 msgstr "Udklipsholderen giver dig mulighed for at tage dele fra dette familietræ og samle dem til en fil (i GEDCOM format) der efterfølgende kan downloades og importeres i dit eget slægtsprogram..<br><ul><li>Hvordan laver du udklip?<br>Det er meget enkelt. Når du ser et klikbart navn (person, familie, eller kilde) vælger du detalje siden for dette navn. Der kan du se fanen <b>Udklipsholder</b> . Når du klikker på denne fane udklippe det navn du har valgt.</li><li>Hvordan downloades udklippet?<br>Når du har de ønskede udklip kan du bare downloade dem ved at klikke på <b>Hent nu</b> . Derefter kan du vælge hvordan du ønsker filen (fx komprimeret og ANSI tegnsæt) samt hvor den skal lagres på din PC.</li></ul>"
 
 #: help_text.php:1314
-msgid "The current <b>webtrees</b> admin username must be the same as an existing PGV admin username"
-msgstr "Det aktuelle <b>webtrees</b>administrator brugernavn skal være det samme som et eksisterende PGV administrator brugernavn"
+msgid "The current webtrees admin username must be the same as an existing PGV admin username"
+msgstr "Det aktuelle webtreesadministrator brugernavn skal være det samme som et eksisterende PGV administrator brugernavn"
 
 #: login.php:527
 #, php-format
@@ -13560,8 +13552,8 @@ msgstr "Efternavnet er omkranset af skråstreger: <%s>John Paul /Smith/<%s>"
 
 #. I18N: Help text for the “Session timeout” site configuration setting
 #: help_text.php:729
-msgid "The time in seconds that a <b>webtrees</b> session remains active before requiring a login.  The default is 7200, which is 2 hours."
-msgstr "Tiden i sekunder som en <b>webtrees</b> session må være aktiv før der atter kræves et login. Standard er 7200 hvilket svarer til 2 timer."
+msgid "The time in seconds that a webtrees session remains active before requiring a login.  The default is 7200, which is 2 hours."
+msgstr "Tiden i sekunder som en webtrees session må være aktiv før der atter kræves et login. Standard er 7200 hvilket svarer til 2 timer."
 
 #: admin_site_upgrade.php:489
 msgid "The upgrade is complete."
@@ -13682,8 +13674,8 @@ msgid "Thermidor"
 msgstr "Thermidor"
 
 #: admin.php:102
-msgid "These pages provide access to all the configuration settings and management tools for this <b>webtrees</b> site."
-msgstr "Disse sider giver adgang til alle konfigurationsindstillinger og værktøjer for dette <b>webtrees</b> websted."
+msgid "These pages provide access to all the configuration settings and management tools for this webtrees site."
+msgstr "Disse sider giver adgang til alle konfigurationsindstillinger og værktøjer for dette webtrees websted."
 
 #. I18N: do not translate the #keywords#
 #: modules_v3/html/module.php:159
@@ -14097,8 +14089,8 @@ msgid "This option indicates whether the pedigree chart should be generated in l
 msgstr "Her bestemmes om slægtstræet skal printes ud liggende eller stående."
 
 #: help_text.php:1188
-msgid "This option is like <b>webtrees</b> internal messaging, with one addition.  As an extra, a copy of the message will also be sent to the email address you configured on your Account page.  This is the default contact method."
-msgstr "Denne funktion er lige som <b>webtrees</b> intern besked, med en tilføjelse. Ud over denne vil der også blive sendt en kopi af beskeden til den email-adresse du har indstillet på din konto side.  Dette er standard kontaktmetoden."
+msgid "This option is like webtrees internal messaging, with one addition.  As an extra, a copy of the message will also be sent to the email address you configured on your Account page.  This is the default contact method."
+msgstr "Denne funktion er lige som webtrees intern besked, med en tilføjelse. Ud over denne vil der også blive sendt en kopi af beskeden til den email-adresse du har indstillet på din konto side.  Dette er standard kontaktmetoden."
 
 #: help_text.php:1114
 msgid "This option selects the family tree that is shown to visitors when they first arrive at the site."
@@ -14153,8 +14145,8 @@ msgid "This page allows you to bypass the usual forms, and edit the underlying d
 msgstr "Dette vindue tillader dig at springe over de normale formularer og redigere direkte i data. Det er en mulighed du kun bør benytte hvis du forstår GEDCOM koderne. Hvis du laver en fejltagelse her, kan det være vanskeligt at rette op på din fejl."
 
 #: help_text.php:1324
-msgid "This page provides extensive information about the server on which <b>webtrees</b> is being hosted.  Many configuration details about the server’s software, as it relates to PHP and <b>webtrees</b>, can be viewed."
-msgstr "Denne side viser omfattende oplysninger om den server, hvor <b>webtrees</b> er installeret. Man kan se mange konfigurationsdetaljer for serverens software som vedrører PHP og <b>webtrees</b>."
+msgid "This page provides extensive information about the server on which webtrees is being hosted.  Many configuration details about the server’s software, as it relates to PHP and webtrees, can be viewed."
+msgstr "Denne side viser omfattende oplysninger om den server, hvor webtrees er installeret. Man kan se mange konfigurationsdetaljer for serverens software som vedrører PHP og webtrees."
 
 #: help_text.php:1170
 msgid "This page will allow you to merge two GEDCOM records from the same GEDCOM file.<br><br>This is useful for individuals who have merged GEDCOMs and now have many individuals, families, and sources that are the same.<br><br>The page consists of three steps.<br><ol><li>You enter two GEDCOM IDs.  The IDs <u>must</u> be of the same type.  You cannot merge an individual and a family or family and source, for example.<br>In the <b>Merge To ID:</b> field enter the ID of the record you want to be the new record after the merge is complete.<br>In the <b>Merge From ID:</b> field enter the ID of the record whose information will be merged into the Merge To ID: record.  This record will be deleted after the Merge.</li><li>You select what facts you want to keep from the two records when they are merged.  Just click the checkboxes next to the ones you want to keep.</li><li>You inspect the results of the merge, just like with all other changes made online.</li></ol>Someone with Accept rights will have to authorize your changes to make them permanent."
@@ -14997,8 +14989,8 @@ msgid "Use relationship privacy"
 msgstr "Brug privatliv på slægtskab"
 
 #: help_text.php:1017
-msgid "Use silhouette images when no highlighted image for that individual has been specified.  The images used are specific to the gender of the individual in question.<br><br><table><tr><td style=\"vertical-align:middle\">This image might be used when the gender of the individual is unknown:"
-msgstr "Brug billeder i silhuet når der ikke er specificeret et hovedbillede for personen. De anvendte billeder er specifikke for den pågældende persons køn.<br><br><table><tr><td style=\"vertical-align:middle\">Dette billede bruges når personens køn ikke er kendt."
+msgid "Use silhouette images when no highlighted image for that individual has been specified.  The images used are specific to the gender of the individual in question."
+msgstr "Brug billeder i silhuet når der ikke er specificeret et hovedbillede for personen. De anvendte billeder er specifikke for den pågældende persons køn."
 
 #: admin_trees_config.php:675 help_text.php:1016
 msgid "Use silhouettes"
@@ -15373,32 +15365,32 @@ msgid "Western Sahara"
 msgstr "Vestsahara"
 
 #: help_text.php:521
-msgid "When a new family record is added online in <b>webtrees</b>, a new ID for that family will be generated automatically. The family ID will have this prefix."
-msgstr "Når en ny familie tilføjes online i <b>webtrees</b> genereres der automatisk et nyt ID for familien. Familie-ID'et vil have dette præfix."
+msgid "When a new family record is added online in webtrees, a new ID for that family will be generated automatically. The family ID will have this prefix."
+msgstr "Når en ny familie tilføjes online i webtrees genereres der automatisk et nyt ID for familien. Familie-ID'et vil have dette præfix."
 
 #: help_text.php:540
-msgid "When a new individual record is added online in <b>webtrees</b>, a new ID for that individual will be generated automatically. The individual ID will have this prefix."
-msgstr "Når et nyt individ bliver oprettet online i <b>webtrees</b>, får det automatisk tildelt et nyt ID. Individets ID vil have dette præfiks."
+msgid "When a new individual record is added online in webtrees, a new ID for that individual will be generated automatically. The individual ID will have this prefix."
+msgstr "Når et nyt individ bliver oprettet online i webtrees, får det automatisk tildelt et nyt ID. Individets ID vil have dette præfiks."
 
 #: help_text.php:667
-msgid "When a new media record is added online in <b>webtrees</b>, a new ID for that media will be generated automatically. The media ID will have this prefix."
-msgstr "Når et nyt medieemne tilføjes online i <b>webtrees</b> vil der automatisk blive genereret et nyt ID for mediet. Medie-ID'et vil have dette præfiks."
+msgid "When a new media record is added online in webtrees, a new ID for that media will be generated automatically. The media ID will have this prefix."
+msgstr "Når et nyt medieemne tilføjes online i webtrees vil der automatisk blive genereret et nyt ID for mediet. Medie-ID'et vil have dette præfiks."
 
 #: help_text.php:699
-msgid "When a new note record is added online in <b>webtrees</b>, a new ID for that note will be generated automatically. The note ID will have this prefix."
-msgstr "Når en ny note tilføjes online i <b>webtrees</b> vil der automatisk blive genereret et nyt ID for denne note. Note-ID'et vil have dette præfiks."
+msgid "When a new note record is added online in webtrees, a new ID for that note will be generated automatically. The note ID will have this prefix."
+msgstr "Når en ny note tilføjes online i webtrees vil der automatisk blive genereret et nyt ID for denne note. Note-ID'et vil have dette præfiks."
 
 #: help_text.php:814
-msgid "When a new repository record is added online in <b>webtrees</b>, a new ID for that repository will be generated automatically. The repository ID will have this prefix."
-msgstr "Når et nyt opbevaringssted tilføjes online i <b>webtrees</b> vil der automatisk blive genereret et nyt ID for dette opbevaringssted. Opbevaringssted-ID'et vil have dette præfiks."
+msgid "When a new repository record is added online in webtrees, a new ID for that repository will be generated automatically. The repository ID will have this prefix."
+msgstr "Når et nyt opbevaringssted tilføjes online i webtrees vil der automatisk blive genereret et nyt ID for dette opbevaringssted. Opbevaringssted-ID'et vil have dette præfiks."
 
 #: help_text.php:905
-msgid "When a new source record is added online in <b>webtrees</b>, a new ID for that source will be generated automatically.  The source ID will have this prefix."
-msgstr "Når en ny kilde tilføjes online i <b>webtrees</b> vil der automatisk blive genereret et nyt ID for denne kilde. Kilde-ID'et vil have dette præfiks."
+msgid "When a new source record is added online in webtrees, a new ID for that source will be generated automatically.  The source ID will have this prefix."
+msgstr "Når en ny kilde tilføjes online i webtrees vil der automatisk blive genereret et nyt ID for denne kilde. Kilde-ID'et vil have dette præfiks."
 
 #: help_text.php:1468
 msgid "When a user registers for an account, an email is sent to their email address with a verification link.  When they click this link, we know the email address is correct, and the “email verified” option is selected automatically."
-msgstr "Når en gæst på websiden ønsker at oprette en brugerkonto sendes en e-mail til deres e-mail adresse med en verifikationslink. Når der klikkes på denne link ved <b>webtrees</b> at e-mail adressen er korrekt og dermed afkrydses feltet \"E-mail verificeret\"."
+msgstr "Når en gæst på websiden ønsker at oprette en brugerkonto sendes en e-mail til deres e-mail adresse med en verifikationslink. Når der klikkes på denne link ved webtrees at e-mail adressen er korrekt og dermed afkrydses feltet \"E-mail verificeret\"."
 
 #: modules_v3/GEDFact_assistant/_MEDIA/media_0_inverselink.php:44
 msgid "When adding a link, the ID field cannot be empty."
@@ -15409,8 +15401,8 @@ msgid "When adding new close relatives, you can add source citations to the reco
 msgstr "Når du tilføjer nye nære slægtninge kan du tilføje kildecitater til deres oplysninger som INDI og FAM eller fakta som BIRT, MARR og DEAT. Denne indstilling bestemmer hvilke afkrydsningsfelter der er markeret som standard."
 
 #: help_text.php:461
-msgid "When calculating relationships, this option controls whether <b>webtrees</b> will include spouses/partners as well as blood relatives."
-msgstr "Denne indstilling styrer om <b>webtrees</b> skal inkludere både partnere og blodsrelaterede slægtninge når der beregnes slægtskaber."
+msgid "When calculating relationships, this option controls whether webtrees will include spouses/partners as well as blood relatives."
+msgstr "Denne indstilling styrer om webtrees skal inkludere både partnere og blodsrelaterede slægtninge når der beregnes slægtskaber."
 
 #: help_text.php:895
 msgid "When set to <b>Yes</b>, the following message will appear above the input fields on the “Request new user account” page:<div class=\"list_value_wrap\"><div class=\"largeError\">Notice:</div><div class=\"error\">By completing and submitting this form, you agree:<ul><li>to protect the privacy of living individuals listed on our site;</li><li>and in the text box below, to explain to whom you are related, or to provide us with information on someone who should be listed on our site.</li></ul></div></div>"
@@ -15477,8 +15469,8 @@ msgid "Which records linked to this source should be added?"
 msgstr "Hvilke poster der har link til denne kilde skal tilføjes?"
 
 #: admin_trees_config.php:647 help_text.php:671
-msgid "Who can upload new media files?"
-msgstr "Hvem kan uploade nye medie-filer?"
+msgid "Who can upload new media files"
+msgstr "Hvem kan uploade nye medie-filer"
 
 #. I18N: Name of a module. (A list of users who are online now)
 #: modules_v3/logged_in/module.php:32
@@ -15550,16 +15542,16 @@ msgid "With sources"
 msgstr "Med kilder"
 
 #: help_text.php:1184
-msgid "With this option, the <b>webtrees</b> internal messaging system will be used and no emails will be sent.  You will receive only <u>internal</u> messages from the other users.  When another site user sends you a message, that message will appear in the Message block on your “My page”.  If you have removed this block from your “My page”, you will not see any messages.  They will, however, show up as soon as you configure your “My page” to again have the Message block."
-msgstr "Med denne funktion, vil <b>webtrees</b> egen beskedsystem blive brugt, og der vil ikke blive sendt nogen emails.  Du vil kun modtage <u>interne</u> beskeder fra andre brugere. Når en anden webstedsbruger sender en besked til dig, vil beskeden ankomme i besked blokken på din personlige Min side. Hvis du har fjernet denne blok fra din Min side, vil du ikke se nogen beskeder. De vil dog komme frem så snart du tilføjer besked blokken til din Min side."
+msgid "With this option, the webtrees internal messaging system will be used and no emails will be sent.  You will receive only <u>internal</u> messages from the other users.  When another site user sends you a message, that message will appear in the Message block on your “My page”.  If you have removed this block from your “My page”, you will not see any messages.  They will, however, show up as soon as you configure your “My page” to again have the Message block."
+msgstr "Med denne funktion, vil webtrees egen beskedsystem blive brugt, og der vil ikke blive sendt nogen emails.  Du vil kun modtage <u>interne</u> beskeder fra andre brugere. Når en anden webstedsbruger sender en besked til dig, vil beskeden ankomme i besked blokken på din personlige Min side. Hvis du har fjernet denne blok fra din Min side, vil du ikke se nogen beskeder. De vil dog komme frem så snart du tilføjer besked blokken til din Min side."
 
 #: help_text.php:1196
 msgid "With this option, you will not receive any messages.  Even the administrator will not be able to reach you."
 msgstr "Vælges dette vil du ikke modtage nogen beskeder overhovedet!"
 
 #: help_text.php:1192
-msgid "With this option, you will only receive email messages at the address you configured on your Account page.  The messaging system internal to <b>webtrees</b> will not be used at all, and there will never be any messages in the Message block on your “My page”."
-msgstr "Med denne indstilling vil du kun modtage emails på den adresse du har indtastet på din brugerkonto. Det interne beskedsystem i <b>webtrees</b> vil ikke blive brugt og der vil aldrig komme beskeder i rammen Beskeder på din personlige Min Side."
+msgid "With this option, you will only receive email messages at the address you configured on your Account page.  The messaging system internal to webtrees will not be used at all, and there will never be any messages in the Message block on your “My page”."
+msgstr "Med denne indstilling vil du kun modtage emails på den adresse du har indtastet på din brugerkonto. Det interne beskedsystem i webtrees vil ikke blive brugt og der vil aldrig komme beskeder i rammen Beskeder på din personlige Min Side."
 
 #: library/WT/Stats.php:302 library/WT/Stats.php:346
 msgid "Without sources"
@@ -15619,8 +15611,8 @@ msgstr "Du har ikke tilladelse til at sende beskeder som indeholder eksterne lin
 
 #. I18N: Help text for the "Default Theme" site configuration setting
 #: help_text.php:985
-msgid "You can change the appearance of <b>webtrees</b> using “themes”.  Each theme has a different style, layout, color scheme, etc."
-msgstr "Du kan ændre udseendet af <b>webtrees</b> ved at benytte \"Temaer\". Hvert tema har forskellig stil, udseende, farve osv."
+msgid "You can change the appearance of webtrees using “themes”.  Each theme has a different style, layout, color scheme, etc."
+msgstr "Du kan ændre udseendet af webtrees ved at benytte \"Temaer\". Hvert tema har forskellig stil, udseende, farve osv."
 
 #: help_text.php:1279
 msgid "You can click this button to see whether there is another relationship path between the two individuals.  Previously found paths can be displayed again by clicking the link with the path number."
@@ -15758,8 +15750,8 @@ msgid "You need to login again, using your PhpGedView username and password."
 msgstr "Du skal logge ind igen, ved at bruge dit PhpGedView brugernavn og adgangskode."
 
 #: setup.php:399
-msgid "You need to set up an administrator account.  This account can control all aspects of this <b>webtrees</b> installation.  Please choose a strong password."
-msgstr "Du skal oprette en administratorkonto. Denne konto kan styre alle dele af denne <b>webtrees</b>-installation. Vælg venligst et komplekst kodeord."
+msgid "You need to set up an administrator account.  This account can control all aspects of this webtrees installation.  Please choose a strong password."
+msgstr "Du skal oprette en administratorkonto. Denne konto kan styre alle dele af denne webtrees-installation. Vælg venligst et komplekst kodeord."
 
 #: login.php:505
 msgid "You now need to review the account details, and set the “approved” status to “yes”."
@@ -15784,7 +15776,7 @@ msgstr ""
 
 #: help_text.php:1151
 msgid "You should avoid using the vertical line character “|” in your notes.  It is used internally by webtrees and may cause your note to display incorrectly."
-msgstr "Du bør undgå tegnet for en lodret streg “|” i dine noter. Tegnet bliver brugt internt i <b>webtrees</b> og kan være skyld i at din note ikke vises korrekt."
+msgstr "Du bør undgå tegnet for en lodret streg “|” i dine noter. Tegnet bliver brugt internt i webtrees og kan være skyld i at din note ikke vises korrekt."
 
 #: admin_site_upgrade.php:200
 msgid "You should consult the module’s author to confirm compatibility with this version of webtrees."
@@ -20106,8 +20098,8 @@ msgstr "…"
 #~ msgid "Source add facts"
 #~ msgstr "Tilføj kildefakta"
 
-#~ msgid "Specifies whether messages sent through <b>webtrees</b> can be stored in the database.  If set to <b>Yes</b> users will be able to retrieve their messages when they login to <b>webtrees</b>.  If set to <b>No</b> messages will only be emailed."
-#~ msgstr "Specificerer om beskeder sendt via <b>webtrees</b> kan blive lagret i databasen. Hvis <b>Ja</b> vil brugere være i stand til at hente deres beskeder når de logger på <b>webtrees</b>. Hvis sat til <b>Nej</b> vil beskederne blive sendt som e-mail."
+#~ msgid "Specifies whether messages sent through webtrees can be stored in the database.  If set to <b>Yes</b> users will be able to retrieve their messages when they login to webtrees.  If set to <b>No</b> messages will only be emailed."
+#~ msgstr "Specificerer om beskeder sendt via webtrees kan blive lagret i databasen. Hvis <b>Ja</b> vil brugere være i stand til at hente deres beskeder når de logger på webtrees. Hvis sat til <b>Nej</b> vil beskederne blive sendt som e-mail."
 
 #~ msgid "Standard header for custom welcome text"
 #~ msgstr "Standard start af egen velkomsttekst"
@@ -20142,7 +20134,7 @@ msgstr "…"
 #~ msgid "This is used in the \"Sender:\" header when sending mails.  It is often the same as the \"From:\" header."
 #~ msgstr "Dette bruges i \"Afsender\"-linjen i de sendte mails. Det er ofte det samme som i \"Fra\"."
 
-#~ msgid "This option causes <b>webtrees</b> to show all individuals who are recorded as having an association relationship to the person or family that was found as a direct result of the search.  The inverse, where all persons or families are shown when a person found as a direct result of the search has an association relationship to these other persons or families, is not possible.<br><br>Example:  Suppose person <b>A</b> is godparent to person <b>B</b>.  This relationship is recorded in the GEDCOM record of person <b>B</b> by means of an ASSO tag.  No corresponding tag exists in the GEDCOM record of person <b>A</b>.<br><br>When this option is set to <b>Yes</b> and the Search results list includes <b>B</b>, <b>A</b> will be included automatically because of the ASSO tag in the GEDCOM record of <b>B</b>.  However, if the Search results list includes <b>A</b>, <b>B</b> will not be included automatically since there is no matching ASSO tag in the GEDCOM record of person <b>A</b>."
+#~ msgid "This option causes webtrees to show all individuals who are recorded as having an association relationship to the person or family that was found as a direct result of the search.  The inverse, where all persons or families are shown when a person found as a direct result of the search has an association relationship to these other persons or families, is not possible.<br><br>Example:  Suppose person <b>A</b> is godparent to person <b>B</b>.  This relationship is recorded in the GEDCOM record of person <b>B</b> by means of an ASSO tag.  No corresponding tag exists in the GEDCOM record of person <b>A</b>.<br><br>When this option is set to <b>Yes</b> and the Search results list includes <b>B</b>, <b>A</b> will be included automatically because of the ASSO tag in the GEDCOM record of <b>B</b>.  However, if the Search results list includes <b>A</b>, <b>B</b> will not be included automatically since there is no matching ASSO tag in the GEDCOM record of person <b>A</b>."
 #~ msgstr "Denne indstilling medfører at <b> webtrees </b> viser alle personer der er registreret som havende en tilknytning til den person eller familie, der blev fundet som et direkte resultat af søgningen. Det modsatte funktion er ikke mulig.<br><br>Eksempel: Antag at personen <b>A</b> er fadder til personen <b>B</b>. Denne tilknytning er registreret i ASSO-koden for person <b>B</b>. Der findes ingen tilsvarende kode for person<b>A</b>.<br><br>Når denne indstilling er valgt og søgningen finder person <b>B</b>, så vil person <b>A</b> automatisk blive vist i søgningen pga ASSO-koden hos person <b>B</b>. Hvis søgningen imidlertid finder person <b>A</b>, så vil person <b>B</b> ikke være i søgeresultatet pga den manglende ASSO-kode."
 
 #~ msgid "This option controls whether or not to abbreviate labels like <b>Birth</b> on charts with just the first letter like <b>B</b>."
@@ -20181,8 +20173,8 @@ msgstr "…"
 #~ msgid "Upgrade the web-server to PHP %s or higher."
 #~ msgstr "Opgrader webserveren til PHP %s eller nyere."
 
-#~ msgid "Use SMTP to send e-mails from <b>webtrees</b>.<br><br>This option requires access to an SMTP mail server.  When set to <b>No</b> <b>webtrees</b> will use the e-mail system built into PHP on this server."
-#~ msgstr "Brug SMTP til at sende e-mails fra <b>webtrees</b>.<br><br>Denne indstilling kræver at der er adgang til en SMTP mail server. Hvis indstillingen er <b>Nej</b> vil <b>webtrees</b> bruge e-mail systemet der er indbygget i PHP på denne server."
+#~ msgid "Use SMTP to send e-mails from webtrees.<br><br>This option requires access to an SMTP mail server.  When set to <b>No</b> webtrees will use the e-mail system built into PHP on this server."
+#~ msgstr "Brug SMTP til at sende e-mails fra webtrees.<br><br>Denne indstilling kræver at der er adgang til en SMTP mail server. Hvis indstillingen er <b>Nej</b> vil webtrees bruge e-mail systemet der er indbygget i PHP på denne server."
 
 #~ msgid "Use SMTP to send external mails"
 #~ msgstr "Brug SMTP til at sende eksterne emails"
@@ -20190,8 +20182,8 @@ msgstr "…"
 #~ msgid "Use name and password authentication to connect to the SMTP server.<br><br>Some SMTP servers require all connections to be authenticated before they will accept outbound e-mails."
 #~ msgstr "Brug brugernavn og kodeord til autentificere og forbinde til SMTP-serveren.<br><br>Nogle SMTP-servere kræver at alle forbindelser bliver autentificerede før serveren godkender afsendelse af e-mails."
 
-#~ msgid "Use this field for storing an abbreviated version of a title.  This field is used in conjunction with the title field on sources.  By default <b>webtrees</b> will first use the title and then the abbreviated title.<br><br>According to the GEDCOM 5.5 specification, \"this entry is to provide a short title used for sorting, filing, and retrieving source records (pg 62).\"<br><br>In <b>webtrees</b> the abbreviated title is optional, but in other genealogical programs it is required."
-#~ msgstr "Brug dette felt til at lagre en forkortet version af titlen. Feltet bruges i forbindelse med kildens titelfelt. Som standard vil <b>webtrees</b> først bruge titlen og derefter den forkortede titel.<br><br>I henhold til specifikationen for GEDCOM 5.5: \"this entry is to provide a short title used for sorting, filing, and retrieving source records (pg 62).\" <br><br>I <b>webtrees</b> er den forkortede titel en mulighed, men i andre slægtsprogrammer er den nødvendig."
+#~ msgid "Use this field for storing an abbreviated version of a title.  This field is used in conjunction with the title field on sources.  By default webtrees will first use the title and then the abbreviated title.<br><br>According to the GEDCOM 5.5 specification, \"this entry is to provide a short title used for sorting, filing, and retrieving source records (pg 62).\"<br><br>In webtrees the abbreviated title is optional, but in other genealogical programs it is required."
+#~ msgstr "Brug dette felt til at lagre en forkortet version af titlen. Feltet bruges i forbindelse med kildens titelfelt. Som standard vil webtrees først bruge titlen og derefter den forkortede titel.<br><br>I henhold til specifikationen for GEDCOM 5.5: \"this entry is to provide a short title used for sorting, filing, and retrieving source records (pg 62).\" <br><br>I webtrees er den forkortede titel en mulighed, men i andre slægtsprogrammer er den nødvendig."
 
 #~ msgid "Users with warnings"
 #~ msgstr "Brugere med advarsler"

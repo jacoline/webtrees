@@ -27,7 +27,7 @@ require WT_ROOT.'includes/functions/functions_edit.php';
 $controller=new WT_Controller_Page();
 $controller
 	->restrictAccess(Auth::isAdmin())
-	->setPageTitle(WT_I18N::translate('Module administration'))
+	->setPageTitle(WT_I18N::translate('Module administration') . ' — ' . WT_I18N::translate('Menus'))
 	->pageHeader()
 	->addInlineJavascript('
     jQuery("#menus_table").sortable({items: ".sortme", forceHelperSize: true, forcePlaceholderSize: true, opacity: 0.7, cursor: "move", axis: "y"});
@@ -64,53 +64,53 @@ if ($action=='update_mods' && WT_Filter::checkCsrf()) {
 }
 
 ?>
-<div id="menus" align="center">
-	<form method="post" action="<?php echo WT_SCRIPT_NAME; ?>">
-		<input type="hidden" name="action" value="update_mods">
-		<?php echo WT_Filter::getCsrf(); ?>
-		<table id="menus_table" class="modules_table">
-			<thead>
-				<tr>
-					<th><?php echo WT_I18N::translate('Menu'); ?></th>
-					<th><?php echo WT_I18N::translate('Description'); ?></th>
-					<th><?php echo WT_I18N::translate('Order'); ?></th>
-					<th><?php echo WT_I18N::translate('Access level'); ?></th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				$order = 1;
-				foreach ($modules as $module_name=>$module) {
-					?>
-					<tr class="sortme">
-						<td><?php echo $module->getTitle(); ?></td>
-						<td><?php echo $module->getDescription(); ?></td>
-						<td><input type="text" size="3" value="<?php echo $order; ?>" name="menuorder-<?php echo $module->getName(); ?>">
-						</td>
-						<td>
-							<table class="modules_table2">
-								<?php
-									foreach (WT_Tree::getAll() as $tree) {
-										$varname = 'menuaccess-'.$module_name.'-'.$tree->tree_id;
-										$access_level=WT_DB::prepare(
-											"SELECT access_level FROM `##module_privacy` WHERE gedcom_id=? AND module_name=? AND component='menu'"
-										)->execute(array($tree->tree_id, $module_name))->fetchOne();
-										if ($access_level===null) {
-											$access_level=$module->defaultAccessLevel();
-										}
-										echo '<tr><td>', $tree->tree_title_html, '</td><td>';
-										echo edit_field_access_level($varname, $access_level);
-									}
-								?>
-							</table>
-						</td>
-					</tr>
-				<?php
-				$order++;
-				}
-				?>
-			</tbody>
-		</table>
-		<input type="submit" value="<?php echo WT_I18N::translate('save'); ?>">
-	</form>
-</div>
+<h2><?php echo $controller->getPageTitle(); ?></h2>
+
+<form method="POST">
+	<input type="hidden" name="action" value="update_mods">
+	<?php echo WT_Filter::getCsrf(); ?>
+	<table id="menus_table" class="table table-bordered">
+		<thead>
+		<tr>
+			<th><?php echo WT_I18N::translate('Menu'); ?></th>
+			<th><?php echo WT_I18N::translate('Description'); ?></th>
+			<th><?php echo WT_I18N::translate('Order'); ?></th>
+			<th><?php echo WT_I18N::translate('Access level'); ?></th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php
+		$order = 1;
+		foreach ($modules as $module_name=>$module) {
+			?>
+			<tr class="sortme">
+				<td><?php echo $module->getTitle(); ?></td>
+				<td><?php echo $module->getDescription(); ?></td>
+				<td><input type="text" size="3" value="<?php echo $order; ?>" name="menuorder-<?php echo $module->getName(); ?>">
+				</td>
+				<td>
+					<table class="modules_table2">
+						<?php
+						foreach (WT_Tree::getAll() as $tree) {
+							$varname = 'menuaccess-'.$module_name.'-'.$tree->tree_id;
+							$access_level=WT_DB::prepare(
+								"SELECT access_level FROM `##module_privacy` WHERE gedcom_id=? AND module_name=? AND component='menu'"
+							)->execute(array($tree->tree_id, $module_name))->fetchOne();
+							if ($access_level===null) {
+								$access_level=$module->defaultAccessLevel();
+							}
+							echo '<tr><td>', $tree->tree_title_html, '</td><td>';
+							echo edit_field_access_level($varname, $access_level);
+						}
+						?>
+					</table>
+				</td>
+			</tr>
+			<?php
+			$order++;
+		}
+		?>
+		</tbody>
+	</table>
+	<input class="btn btn-primary" type="submit" value="<?php echo WT_I18N::translate('save'); ?>">
+</form>

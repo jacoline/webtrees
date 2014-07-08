@@ -171,6 +171,30 @@ class User {
 	}
 
 	/**
+	 * Get a list of all verified users.
+	 *
+	 * @return User[]
+	 */
+	public static function allVerified() {
+		$users = array();
+
+		$rows = WT_DB::prepare(
+			"SELECT SQL_CACHE user_id, user_name, real_name, email" .
+			" FROM `##user`" .
+			" JOIN `##user_setting` USING (user_id)" .
+			" WHERE user_id > 0" .
+			"   AND setting_name = 'verified_by_admin'" .
+			"   AND setting_value = '1'"
+		)->fetchAll();
+
+		foreach ($rows as $row) {
+			$users[] = new User($row);
+		}
+
+		return $users;
+	}
+
+	/**
 	 * Get a list of all administrators.
 	 *
 	 * @return User[]

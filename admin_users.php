@@ -28,7 +28,7 @@ use WT\User;
 define('WT_SCRIPT_NAME', 'admin_users.php');
 require './includes/session.php';
 
-$controller=new WT_Controller_Page();
+$controller = new WT_Controller_Page();
 $controller
 	->restrictAccess(Auth::isAdmin())
 	->setPageTitle(WT_I18N::translate('User administration'));
@@ -134,7 +134,7 @@ case 'loadrows':
 
 	// Reformat various columns for display
 	foreach ($data as &$datum) {
-		$datum[0]='<a href="#" title="'.WT_I18N::translate('Details').'">&nbsp;</a>';
+		$datum[0]='<button class="btn btn-success" title="'.WT_I18N::translate('Show details').'"><i class="fa fa-plus"></i><i class="fa fa-minus hidden"></i></button>';
 		// $aData[1] is the user ID
 		$user_id  =$datum[1];
 		$user_name=$datum[2];
@@ -143,7 +143,7 @@ case 'loadrows':
 		$datum[4]=edit_field_inline('user-email-'.    $user_id, $datum[4]);
 		// $aData[5] is a link to an email icon
 		if ($user_id != WT_USER_ID) {
-			$datum[5]='<i class="icon-email" onclick="return message(\''.$user_name.'\', \'\', \'\');"></i>';
+			$datum[5]='<button class="btn" onclick="return message(\''.$user_name.'\', \'\', \'\');"><i class="fa fa-envelope-o"></i></button>';
 		}
 		$datum[6]=edit_field_language_inline('user_setting-'.$user_id.'-language', $datum[6]);
 		// $aData[7] is the sortable registration timestamp
@@ -161,7 +161,7 @@ case 'loadrows':
 		$datum[12]=edit_field_yes_no_inline('user_setting-'.$user_id.'-verified_by_admin-', $datum[12]);
 		// Add extra column for "delete" action
 		if ($user_id != WT_USER_ID) {
-			$datum[13]='<div class="icon-delete" onclick="delete_user(\'' . WT_I18N::translate('Are you sure you want to delete “%s”?', WT_Filter::escapeJs($user_name)) . '\', \'' . WT_Filter::escapeJs($user_id) . '\');"></div>';
+			$datum[13]='<button class="btn btn-danger btn-sm" onclick="delete_user(\'' . WT_I18N::translate('Are you sure you want to delete “%s”?', WT_Filter::escapeJs($user_name)) . '\', \'' . WT_Filter::escapeJs($user_id) . '\');" title="' . WT_I18N::translate('Delete') . '"><i class="fa fa-trash-o"></i></button>';
 		} else {
 			// Do not delete ourself!
 			$datum[13]='';
@@ -187,8 +187,8 @@ case 'load1row':
 	$user = User::find($user_id);
 	Zend_Session::writeClose();
 	header('Content-type: text/html; charset=UTF-8');
-	echo '<h2>', WT_I18N::translate('Details'), '</h2>';
-	echo '<dl>';
+
+	echo '<dl class="dl-horizontal">';
 	echo '<dt>', WT_I18N::translate('Administrator'), '</dt>';
 	echo '<dd>', edit_field_yes_no_inline('user_setting-'.$user_id.'-canadmin', $user->getSetting('canadmin')), '</dd>';
 
@@ -219,23 +219,20 @@ case 'load1row':
 	// Masquerade as others users - but not other administrators
 	if (!Auth::isAdmin($user)) {
 		echo '<dt>', /* I18N: Pretend to be another user, by logging in as them */ WT_I18N::translate('Masquerade as this user'), '</dt>';
-		echo '<dd><a href="#" onclick="return masquerade(', $user_id, ')">', /* I18N: verb: pretend to be someone else */ WT_I18N::translate('masquerade'), '</a></dd>';
+		echo '<dd><a href="#" onclick="return masquerade(', $user_id, ')">', /* I18N: Button label: pretend to be someone else */ WT_I18N::translate('masquerade'), '</a></dd>';
 	}
 
-	echo '</dl>';
-
-	// Column One - details
-
 	echo
-		'<div id="access">',
-		'<h2>', WT_I18N::translate('Family tree access and settings'), '</h2>',
-		'<table><tr>',
-		'<th>', WT_I18N::translate('Family tree'), '</th>',
-		'<th>', WT_I18N::translate('Default individual'), help_link('default_individual'), '</th>',
-		'<th>', WT_I18N::translate('Individual record'), help_link('useradmin_gedcomid'), '</th>',
-		'<th>', WT_I18N::translate('Role'), help_link('role'), '</th>',
-		'<th>', WT_I18N::translate('Restrict to immediate family'), help_link('RELATIONSHIP_PATH_LENGTH'), '</th>',
-		'</tr>';
+	'</dl>',
+	'<div id="access">',
+	'<h3>', WT_I18N::translate('Family tree access and settings'), '</h3>',
+	'<table class="table table-bordered table-condensed"><tr>',
+	'<th>', WT_I18N::translate('Family tree'), '</th>',
+	'<th>', WT_I18N::translate('Default individual'), help_link('default_individual'), '</th>',
+	'<th>', WT_I18N::translate('Individual record'), help_link('useradmin_gedcomid'), '</th>',
+	'<th>', WT_I18N::translate('Role'), help_link('role'), '</th>',
+	'<th>', WT_I18N::translate('Restrict to immediate family'), help_link('RELATIONSHIP_PATH_LENGTH'), '</th>',
+	'</tr>';
 
 	foreach (WT_Tree::getAll() as $tree) {
 		echo
@@ -361,6 +358,12 @@ case 'createform':
 			return str.replace(/[\\\\.?+*()[\](){}|]/g, "\\\\$&");
 		}
 	');
+
+?>
+<h2>
+	<?php echo WT_I18N::translate('Add a new user'); ?>
+</h2>
+<?php
 
 	echo '
 	<form name="newform" method="post" action="admin_users.php?action=createuser" onsubmit="return checkform(this);" autocomplete="off">
@@ -564,23 +567,24 @@ case 'cleanup2':
 case 'listusers':
 default:
 	echo
-		'<table id="list">',
+		'<h2>', $controller->getPageTitle() ,'</h2>',
+		'<table class="table table-condensed table-bordered table-user-list">',
 			'<thead>',
 				'<tr>',
-					'<th style="margin:0 -2px 1px 1px; padding:6px 0 5px;"> </th>',
-					'<th> user-id </th>',
+					'<th>', WT_I18N::translate('Details'), '</th>',
+					'<th>user-id</th>',
 					'<th>', WT_I18N::translate('Username'), '</th>',
 					'<th>', WT_I18N::translate('Real name'), '</th>',
-					'<th>', WT_I18N::translate('Email'), '</th>',
-					'<th> </th>', /* COLSPAN does not work? */
+					'<th>', WT_I18N::translate('Email address'), '</th>',
+					'<th> </th>',
 					'<th>', WT_I18N::translate('Language'), '</th>',
-					'<th> date_registered </th>',
+					'<th>date_registered</th>',
 					'<th>', WT_I18N::translate('Date registered'), '</th>',
-					'<th> last_login </th>',
+					'<th>last_login</th>',
 					'<th>', WT_I18N::translate('Last logged in'), '</th>',
 					'<th>', WT_I18N::translate('Verified'), '</th>',
 					'<th>', WT_I18N::translate('Approved'), '</th>',
-					'<th style="margin:0 -2px 1px 1px; padding:3px 0 4px;"> </th>',
+					'<th>', WT_I18N::translate('Delete'), '</th>',
 				'</tr>',
 			'</thead>',
 			'<tbody>',
@@ -591,13 +595,12 @@ default:
 		->addExternalJavascript(WT_JQUERY_DATATABLES_URL)
 		->addExternalJavascript(WT_JQUERY_JEDITABLE_URL)
 		->addInlineJavascript('
-			var oTable = jQuery("#list").dataTable({
-				dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+			jQuery(".table-user-list").dataTable({
+				dom: "pftil",
 				'.WT_I18N::datatablesI18N().',
 				processing: true,
 				serverSide: true,
 				ajax: "'.WT_SCRIPT_NAME.'?action=loadrows",
-				jQueryUI: true,
 				autoWidth: false,
 				pageLength: ' . Auth::user()->getSetting('admin_users_page_size', 10).',
 				pagingType: "full_numbers",
@@ -620,29 +623,30 @@ default:
 				],
 				"drawCallback": function() {
 					// Our JSON responses include Javascript as well as HTML.  This does not get executed automatically…
-					jQuery("#list script").each(function() {
+					jQuery(".table-user-list script").each(function() {
 						eval(this.text);
 					});
 				}
+			})
+			.fnFilter("'.WT_Filter::get('filter').'"); // View details of a newly created user
+
+			/* Show/hide the user’s details */
+			jQuery(".table-user-list tbody").on("click", "td:first-child button", function () {
+				var button    = jQuery(this);
+				var row       = button.closest("tr");
+				var dataTable = row.closest("table").dataTable();
+				button.toggleClass("active");
+				jQuery("i.fa", button).toggleClass("hidden");
+				if (jQuery(this).hasClass("active")) {
+					var rowData = dataTable.fnGetData(row);
+					jQuery.get("?action=load1row&user_id=" + rowData[1], function(data) {
+						dataTable.fnOpen(button.closest("tr"), data, "details");
+					});
+				} else {
+					dataTable.fnClose(row);
+				}
 			});
 
-			/* When clicking on the +/- icon, we expand/collapse the details block */
-			jQuery("#list tbody").on("click", "td.icon-close", function () {
-				var nTr=this.parentNode;
-				jQuery(this).removeClass("icon-close");
-				oTable.fnClose(nTr);
-				jQuery(this).addClass("icon-open");
-			});
-			jQuery("#list tbody").on("click", "td.icon-open", function () {
-				var nTr=this.parentNode;
-				jQuery(this).removeClass("icon-open");
-				var aData=oTable.fnGetData(nTr);
-				jQuery.get("'.WT_SCRIPT_NAME.'?action=load1row&user_id="+aData[1], function(data) {
-					oTable.fnOpen(nTr, data, "details");
-				});
-				jQuery(this).addClass("icon-close");
-			});
-			oTable.fnFilter("'.WT_Filter::get('filter').'");
 		');
 	break;
 }

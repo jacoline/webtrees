@@ -24,11 +24,6 @@ define('WT_SCRIPT_NAME', 'admin_modules.php');
 require 'includes/session.php';
 require WT_ROOT.'includes/functions/functions_edit.php';
 
-$controller=new WT_Controller_Page();
-$controller
-	->restrictAccess(Auth::isAdmin())
-	->setPageTitle(WT_I18N::translate('Module administration'));
-
 $modules = WT_Module::getInstalledModules('disabled');
 
 $module_status = WT_DB::prepare("SELECT module_name, status FROM `##module`")->fetchAssoc();
@@ -47,9 +42,15 @@ case 'update_mods':
 			}
 		}
 	}
-	header('Location: admin_modules.php');
-	break;
+
+	header('Location: ' . WT_SERVER_NAME . WT_SCRIPT_PATH . 'admin_modules.php');
+	exit;
 }
+
+$controller=new WT_Controller_Page();
+$controller
+	->restrictAccess(Auth::isAdmin())
+	->setPageTitle(WT_I18N::translate('Module administration'));
 
 switch (WT_Filter::get('action')) {
 case 'delete_module':
@@ -72,7 +73,9 @@ case 'delete_module':
 	WT_DB::prepare("DELETE FROM `##module`         WHERE module_name=?")->execute(array($module_name));
 	unset($modules[$module_name]);
 	unset($module_status[$module_name]);
-	break;
+
+	header('Location: ' . WT_SERVER_NAME . WT_SCRIPT_PATH . 'admin_modules.php');
+	exit;
 }
 
 $controller
@@ -88,14 +91,12 @@ $controller
 
 		jQuery("#installed_table").dataTable( {
 			dom: \'<"H"pf<"dt-clear">irl>t<"F"pl>\',
+			paging: false,
 			'.WT_I18N::datatablesI18N().',
-			jQueryUI: true,
 			autoWidth: false,
 			sorting: [[ 1, "asc" ]],
 			pageLength: 10,
 			pagingType: "full_numbers",
-			stateSave: true,
-			stateDuration: 180,
 			columns : [
 				{ sortable: false, class: "center" },
 				null,
@@ -112,57 +113,59 @@ $controller
 	');
 
 ?>
-<div align="center">
-	<div id="tabs">
-		<form method="post" action="<?php echo WT_SCRIPT_NAME; ?>">
-			<input type="hidden" name="action" value="update_mods">
-			<?php echo WT_Filter::getCsrf(); ?>
-			<table id="installed_table" border="0" cellpadding="0" cellspacing="1">
-				<thead>
-					<tr>
-					<th><?php echo WT_I18N::translate('Enabled'); ?></th>
-					<th width="100px"><?php echo WT_I18N::translate('Module'); ?></th>
-					<th><?php echo WT_I18N::translate('Description'); ?></th>
-					<th><?php echo WT_I18N::translate('Menu'); ?></th>
-					<th><?php echo WT_I18N::translate('Tab'); ?></th>
-					<th><?php echo WT_I18N::translate('Sidebar'); ?></th>
-					<th><?php echo WT_I18N::translate('Block'); ?></th>
-					<th><?php echo WT_I18N::translate('Chart'); ?></th>
-					<th><?php echo WT_I18N::translate('Report'); ?></th>
-					<th><?php echo WT_I18N::translate('Theme'); ?></th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					foreach ($module_status as $module_name=>$status) {
-						if (array_key_exists($module_name, $modules)) {
-							$module=$modules[$module_name];
-							echo
-								'<tr><td>', two_state_checkbox('status-'.$module_name, $status=='enabled'), '</td>',
-								'<td>', $module->getTitle(), '</td>',
-								'<td>', $module->getDescription(), '</td>',
-								'<td>', $module instanceof WT_Module_Menu    ? WT_I18N::translate('Menu') : '-', '</td>',
-								'<td>', $module instanceof WT_Module_Tab     ? WT_I18N::translate('Tab') : '-', '</td>',
-								'<td>', $module instanceof WT_Module_Sidebar ? WT_I18N::translate('Sidebar') : '-', '</td>',
-								'<td>', $module instanceof WT_Module_Block   ? (($module->isUserBlock() ? '<div>'.WT_I18N::translate('My page').'</div>' : '').($module->isGedcomBlock() ? '<div>'.WT_I18N::translate('Home page').'</div>' : '')) : '-', '</td>',
-								'<td>', $module instanceof WT_Module_Chart   ? WT_I18N::translate('Chart') : '-', '</td>',
-								'<td>', $module instanceof WT_Module_Report  ? WT_I18N::translate('Report') : '-', '</td>',
-								'<td>', $module instanceof WT_Module_Theme   ? WT_I18N::translate('Theme') : '-', '</td>',
-								'</tr>';
-						} else {
-							// Module can’t be found on disk?
-							// Don't delete it automatically.  It may be temporarily missing, after a re-installation, etc.
-							echo
-								'<tr class="error"><td>&nbsp;</td><td>', $module_name, '</td><td>',
-								'<a href="'.WT_SCRIPT_NAME.'?action=delete_module&amp;module_name='.$module_name.'">',
-								WT_I18N::translate('This module cannot be found.  Delete its configuration settings.'),
-								'</a></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
-						}
-					}
-					?>
-				</tbody>
-			</table>
-			<input type="submit" value="<?php echo WT_I18N::translate('save'); ?>">
-		</form>
-	</div>
-</div>
+
+<h2><?php echo WT_I18N::translate('Module administration'); ?></h2>
+
+<form method="post" action="<?php echo WT_SCRIPT_NAME; ?>" class="table-responsive">
+	<input type="hidden" name="action" value="update_mods">
+	<?php echo WT_Filter::getCsrf(); ?>
+	<table class="table table-bordered table-hover table-condensed">
+		<caption class="sr-only">
+			<?php echo WT_I18N::translate('Module administration'); ?>
+		</caption>
+		<thead>
+		<tr>
+			<th><?php echo WT_I18N::translate('Enabled'); ?></th>
+			<th><?php echo WT_I18N::translate('Module'); ?></th>
+			<th><?php echo WT_I18N::translate('Description'); ?></th>
+			<th><?php echo WT_I18N::translate('Menu'); ?></th>
+			<th><?php echo WT_I18N::translate('Tab'); ?></th>
+			<th><?php echo WT_I18N::translate('Sidebar'); ?></th>
+			<th><?php echo WT_I18N::translate('Block'); ?></th>
+			<th class="hidden"><?php echo WT_I18N::translate('Chart'); ?></th>
+			<th><?php echo WT_I18N::translate('Report'); ?></th>
+			<th class="hidden"><?php echo WT_I18N::translate('Theme'); ?></th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php
+		foreach ($module_status as $module_name=>$status) {
+			if (array_key_exists($module_name, $modules)) {
+				$module=$modules[$module_name];
+				echo
+				'<tr><td>', two_state_checkbox('status-'.$module_name, $status=='enabled'), '</td>',
+				'<td>', $module->getTitle(), '</td>',
+				'<td>', $module->getDescription(), '</td>',
+				'<td>', $module instanceof WT_Module_Menu    ? WT_I18N::translate('Menu') : '-', '</td>',
+				'<td>', $module instanceof WT_Module_Tab     ? WT_I18N::translate('Tab') : '-', '</td>',
+				'<td>', $module instanceof WT_Module_Sidebar ? WT_I18N::translate('Sidebar') : '-', '</td>',
+				'<td>', $module instanceof WT_Module_Block   ? (($module->isUserBlock() ? '<div>'.WT_I18N::translate('My page').'</div>' : '').($module->isGedcomBlock() ? '<div>'.WT_I18N::translate('Home page').'</div>' : '')) : '-', '</td>',
+				'<td class="hidden">', $module instanceof WT_Module_Chart   ? WT_I18N::translate('Chart') : '-', '</td>',
+				'<td>', $module instanceof WT_Module_Report  ? WT_I18N::translate('Report') : '-', '</td>',
+				'<td class="hidden">', $module instanceof WT_Module_Theme   ? WT_I18N::translate('Theme') : '-', '</td>',
+				'</tr>';
+			} else {
+				// Module can’t be found on disk?
+				// Don't delete it automatically.  It may be temporarily missing, after a re-installation, etc.
+				echo
+				'<tr class="error"><td>&nbsp;</td><td>', $module_name, '</td><td>',
+					'<a href="'.WT_SCRIPT_NAME.'?action=delete_module&amp;module_name='.$module_name.'">',
+				WT_I18N::translate('This module cannot be found.  Delete its configuration settings.'),
+				'</a></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
+			}
+		}
+		?>
+		</tbody>
+	</table>
+	<input class="btn btn-primary" type="submit" value="<?php echo WT_I18N::translate('save'); ?>">
+</form>

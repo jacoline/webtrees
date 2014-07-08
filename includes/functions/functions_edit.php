@@ -116,14 +116,14 @@ function select_edit_control_inline($name, $values, $empty, $selected, $controll
 // $selected - the currently selected item (if any)
 // $extra    - extra markup for field (e.g. tab key sequence)
 function radio_buttons($name, $values, $selected, $extra='') {
-	$html='';
-	foreach ($values as $key=>$value) {
+	$html = '';
+	foreach ($values as $key => $value) {
 		$uniqueID = Uuid::uuid4();
-		$html.='<input type="radio" name="'.$name.'" id="'.$uniqueID.'" value="'.WT_Filter::escapeHtml($key).'"';
+		$html .= '<label for="' . $uniqueID . '" ' . $extra . '><input type="radio" name="'.$name.'" id="'.$uniqueID.'" value="'.WT_Filter::escapeHtml($key).'"';
 		if ((string)$key===(string)$selected) { // Beware PHP array keys are cast to integers!  Cast them back
-			$html.=' checked';
+			$html .= ' checked';
 		}
-		$html.='><label for="'.$uniqueID.'">'.WT_Filter::escapeHtml($value).'</label>';
+		$html .= '>' . WT_Filter::escapeHtml($value) . '</label>';
 	}
 	return $html;
 }
